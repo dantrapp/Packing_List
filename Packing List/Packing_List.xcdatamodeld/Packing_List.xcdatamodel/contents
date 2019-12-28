@@ -1,4 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="false" userDefinedModelVersionIdentifier="">
-    <elements/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15702" systemVersion="19A603" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="PackingList" representedClassName="PackingList" syncable="YES" codeGenerationType="class">
+        <attribute name="adultOrChild" optional="YES" attributeType="String"/>
+        <attribute name="departureDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="destination" optional="YES" attributeType="String"/>
+        <attribute name="firstName" optional="YES" attributeType="String"/>
+        <attribute name="gender" optional="YES" attributeType="String"/>
+        <attribute name="itemDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="itemID" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="itemImage" optional="YES" attributeType="Binary"/>
+        <attribute name="itemName" optional="YES" attributeType="String"/>
+        <attribute name="itemPriority" optional="YES" attributeType="String"/>
+        <attribute name="numberOfPeople" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="peopleID" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="returnDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="transportationType" optional="YES" attributeType="String"/>
+        <attribute name="tripID" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+    </entity>
+    <elements>
+        <element name="PackingList" positionX="-54" positionY="-9" width="128" height="268"/>
+    </elements>
 </model>

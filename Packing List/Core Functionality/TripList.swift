@@ -10,7 +10,7 @@ import SwiftUI
 
 struct TripList: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Text("*** This is the main view for all users that have added a trip *** List all upcoming trips in clickable image List format. 1 Image = Fullscreen. 2 Images = 50% each, 3 images = 33.3% - this way. Split into List Sections so there's a tiny break between images.")
     }
 }
 
