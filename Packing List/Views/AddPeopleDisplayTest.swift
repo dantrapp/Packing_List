@@ -13,7 +13,9 @@ struct AddPeopleDisplayTest: View {
     @Environment(\.managedObjectContext) var moc
     
     
-    @FetchRequest(entity: PackingList.entity(), sortDescriptors: []) var addPeople: FetchedResults<PackingList>
+    @FetchRequest(entity: PackingList.entity(), sortDescriptors: []
+    
+    ) var addPeople: FetchedResults<PackingList>
     
     @State private var showingAddPeopleScreen = false
     
@@ -31,7 +33,7 @@ struct AddPeopleDisplayTest: View {
                 Section{
                     ForEach(addPeople, id: \.self) { people in
                         AddPeopleRow(firstName: people.firstName ?? "Empty!", gender: people.gender ?? "Empty!", adultOrChild: people.adultOrChild ?? "Empty!")
-                    }
+                    }.onDelete(perform: removePeople)
                 }
             }
                 
@@ -44,15 +46,27 @@ struct AddPeopleDisplayTest: View {
                 }
             )
                 .sheet(isPresented: $showingAddPeopleScreen) {
-                    
-                    AddPeople().environment(\.managedObjectContext, self.moc)
-                    
-                    
-                    
+                AddPeople().environment(\.managedObjectContext, self.moc)
             }
+ 
         }
+        
     }
+    //remove people from core data
+              func removePeople(at offsets: IndexSet) {
+                  for index in offsets {
+                      let people = addPeople[index]
+                      self.moc.delete(people)
+                  }
+                  do {
+                      try self.moc.save()
+                  } catch {
+          //            print(error.localizedDescription)
+                  }
+              }
+    
 }
+
 
 
 

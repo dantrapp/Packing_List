@@ -78,7 +78,7 @@ struct AddPeople: View {
                     
                 }
                 
-                Button("save") {
+                Button(("save")) {
                     let addPeople = PackingList(context: self.moc)
                     addPeople.firstName = self.firstName
                     addPeople.gender = self.chooseGender
@@ -88,8 +88,10 @@ struct AddPeople: View {
                     try? self.moc.save()
                     
                     //dismiss sheet
-                                       self.presentationMode.wrappedValue.dismiss()   
-                }
+                                       self.presentationMode.wrappedValue.dismiss()
+                    
+                }//error checking form values for empty. If not empty, show save button.
+                .disabled(firstName.isEmpty || chooseGender.isEmpty || adultOrChild.isEmpty)
                 
                 
                 

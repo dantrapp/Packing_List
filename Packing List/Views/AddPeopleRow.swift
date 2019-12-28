@@ -15,23 +15,28 @@ struct AddPeopleRow: View {
     var adultOrChild = ""
     
     var body: some View {
-                HStack {
-                    Text(firstName)
-                        .font(.headline)
-                    
-                    VStack(alignment: .leading){
-                        Text(gender)
-                            .font(.headline)
-                        
-                        Text("\(adultOrChild)")
-                            .font(.custom("Arial", size: 10))
-                        .lineLimit(3)
-                        
-                    }
-                }
+        HStack {
+            Text("😀")
+                .foregroundColor(Color.blue)
+            
+            Text(firstName)
+                .font(.custom("Arial", size: 25))
+                .lineLimit(1)
+            VStack{
+            Text("\(adultOrChild)")
+                .font(.custom("Arial", size: 15))
+                .lineLimit(1)
+            
+            Text(gender)
+                .font(.custom("Arial", size: 15))
+                .lineLimit(1)
             }
+            
+            
         }
-    
+    }
+}
+
 
 
 struct AddPeopleRow_Previews: PreviewProvider {
