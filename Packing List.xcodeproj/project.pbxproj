@@ -23,9 +23,8 @@
 		7140EF2823B435B30009DA79 /* ItemList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7140EF2723B435B30009DA79 /* ItemList.swift */; };
 		7140EF2A23B444630009DA79 /* ItemDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7140EF2923B444630009DA79 /* ItemDetail.swift */; };
 		7140EF2C23B46A0E0009DA79 /* TripList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7140EF2B23B46A0E0009DA79 /* TripList.swift */; };
-		717CF61123B7CF2700BF5F8C /* TripPlannerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717CF61023B7CF2700BF5F8C /* TripPlannerModel.swift */; };
-		717CF61323B7CF3900BF5F8C /* AddPeopleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717CF61223B7CF3900BF5F8C /* AddPeopleModel.swift */; };
-		717CF61523B7CF4400BF5F8C /* ItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717CF61423B7CF4400BF5F8C /* ItemModel.swift */; };
+		717CF61723B7DE1D00BF5F8C /* AddPeopleDisplayTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717CF61623B7DE1D00BF5F8C /* AddPeopleDisplayTest.swift */; };
+		717CF61923B7E68600BF5F8C /* AddPeopleRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717CF61823B7E68600BF5F8C /* AddPeopleRow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,9 +46,8 @@
 		7140EF2723B435B30009DA79 /* ItemList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemList.swift; sourceTree = "<group>"; };
 		7140EF2923B444630009DA79 /* ItemDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetail.swift; sourceTree = "<group>"; };
 		7140EF2B23B46A0E0009DA79 /* TripList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripList.swift; sourceTree = "<group>"; };
-		717CF61023B7CF2700BF5F8C /* TripPlannerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripPlannerModel.swift; sourceTree = "<group>"; };
-		717CF61223B7CF3900BF5F8C /* AddPeopleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPeopleModel.swift; sourceTree = "<group>"; };
-		717CF61423B7CF4400BF5F8C /* ItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemModel.swift; sourceTree = "<group>"; };
+		717CF61623B7DE1D00BF5F8C /* AddPeopleDisplayTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPeopleDisplayTest.swift; sourceTree = "<group>"; };
+		717CF61823B7E68600BF5F8C /* AddPeopleRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPeopleRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,7 +80,6 @@
 		7140EEDB23B2B5E50009DA79 /* Packing List */ = {
 			isa = PBXGroup;
 			children = (
-				717CF60F23B7CEF800BF5F8C /* Model */,
 				7140EEF723B2B6930009DA79 /* Views */,
 				7140EEF923B2B6F60009DA79 /* Core Functionality */,
 				7140EEF823B2B6AB0009DA79 /* Data */,
@@ -111,6 +108,8 @@
 				7140EEF323B2B6140009DA79 /* TripPlanner.swift */,
 				7140EEE323B2B5E60009DA79 /* TripDetail.swift */,
 				7140EEF523B2B66D0009DA79 /* AddPeople.swift */,
+				717CF61623B7DE1D00BF5F8C /* AddPeopleDisplayTest.swift */,
+				717CF61823B7E68600BF5F8C /* AddPeopleRow.swift */,
 				7140EF2923B444630009DA79 /* ItemDetail.swift */,
 			);
 			path = Views;
@@ -134,16 +133,6 @@
 				7140EEFE23B2B75E0009DA79 /* SubList.swift */,
 			);
 			path = "Core Functionality";
-			sourceTree = "<group>";
-		};
-		717CF60F23B7CEF800BF5F8C /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				717CF61023B7CF2700BF5F8C /* TripPlannerModel.swift */,
-				717CF61223B7CF3900BF5F8C /* AddPeopleModel.swift */,
-				717CF61423B7CF4400BF5F8C /* ItemModel.swift */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -218,18 +207,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				7140EF0123B2B7B40009DA79 /* DefaultItems.swift in Sources */,
+				717CF61723B7DE1D00BF5F8C /* AddPeopleDisplayTest.swift in Sources */,
 				7140EF2A23B444630009DA79 /* ItemDetail.swift in Sources */,
 				7140EEE223B2B5E50009DA79 /* Packing_List.xcdatamodeld in Sources */,
-				717CF61123B7CF2700BF5F8C /* TripPlannerModel.swift in Sources */,
 				7140EEDD23B2B5E50009DA79 /* AppDelegate.swift in Sources */,
 				7140EEF623B2B66D0009DA79 /* AddPeople.swift in Sources */,
 				7140EEE423B2B5E60009DA79 /* TripDetail.swift in Sources */,
 				7140EEFF23B2B75E0009DA79 /* SubList.swift in Sources */,
 				7140EEF423B2B6140009DA79 /* TripPlanner.swift in Sources */,
 				7140EEFB23B2B7390009DA79 /* ListRow.swift in Sources */,
-				717CF61523B7CF4400BF5F8C /* ItemModel.swift in Sources */,
 				7140EF2C23B46A0E0009DA79 /* TripList.swift in Sources */,
-				717CF61323B7CF3900BF5F8C /* AddPeopleModel.swift in Sources */,
+				717CF61923B7E68600BF5F8C /* AddPeopleRow.swift in Sources */,
 				7140EEDF23B2B5E50009DA79 /* SceneDelegate.swift in Sources */,
 				7140EF2823B435B30009DA79 /* ItemList.swift in Sources */,
 				7140EEFD23B2B7480009DA79 /* ListCategories.swift in Sources */,

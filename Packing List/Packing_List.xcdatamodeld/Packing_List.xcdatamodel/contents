@@ -6,6 +6,7 @@
         <attribute name="destination" optional="YES" attributeType="String"/>
         <attribute name="firstName" optional="YES" attributeType="String"/>
         <attribute name="gender" optional="YES" attributeType="String"/>
+        <attribute name="itemCategory" optional="YES" attributeType="String"/>
         <attribute name="itemDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="itemID" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="itemImage" optional="YES" attributeType="Binary"/>
@@ -18,6 +19,6 @@
         <attribute name="tripID" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
     </entity>
     <elements>
-        <element name="PackingList" positionX="-54" positionY="-9" width="128" height="268"/>
+        <element name="PackingList" positionX="-54" positionY="-9" width="128" height="283"/>
     </elements>
 </model>

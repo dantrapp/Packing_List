@@ -10,74 +10,96 @@ import SwiftUI
 
 struct AddPeople: View {
     
+    //establish connection to moc for core data use and presentation mode for sheet
+    @Environment(\.managedObjectContext) var moc
     
-    @State var firstName = ""
-    @State var age = 0
-    @State var adultOrChild = 0
-    @State var chooseGender = 0
+    @Environment(\.presentationMode) var presentationMode
     
-
+    /*
+     'Add People' Core Data Attributes
+     peopleID: UUID
+     firstName: String
+     gender: String
+     adultOrChild: String
+     
+     */
     
-    //Add People Variables
+    @State var firstName : String = ""
+    @State var adultOrChild : String = ""
+    @State var chooseGender : String = ""
     
-    var gender = ["Male", "Female", "Other"]
-    var adultChild = ["Adult", "Child"]
+    
+    
+    //Add People Arrays
+    
+    var genderArray = ["Male", "Female", "Other"]
+    var adultChildArray = ["Adult", "Child"]
     
     var body: some View {
         
-        //use a form
-        Form{
-            Section{
-                HStack{
-                    Spacer()
-                    Image(systemName: "person").resizable().frame(width: 25, height: 25)
-                    Text("Add A Person").font(.largeTitle)
-                    Spacer()
-                }
-            }
-            Section{
-   
-                Text("Basic Details")
-                TextField("Enter First Name", text: $firstName)
-                
-            }
-         
-                 //Select Gender: Segmented Picker
-                    Section(header: Text("Choose Gender: \(gender[chooseGender])")){
-                        
-                        Picker("Gender", selection: $chooseGender){
-                            ForEach(0 ..< gender.count) {
-                                Text(self.gender[$0])
-                            }
-
-                        }.pickerStyle(SegmentedPickerStyle())
-                        
+        NavigationView{
+            Form{
+                Section{
+                    HStack{
+                        Spacer()
+                        Image(systemName: "person").resizable().frame(width: 25, height: 25)
+                        Text("Add A Person").font(.largeTitle)
+                        Spacer()
                     }
-            
-            //Select Adult Or Child: Segmented Picker
-                             Section(header: Text("Adult Or Child?: \(adultChild[adultOrChild])")){
-                                 
-                                 Picker("Gender", selection: $adultOrChild){
-                                     ForEach(0 ..< adultChild.count) {
-                                         Text(self.adultChild[$0])
-                                     }
-
-                                 }.pickerStyle(SegmentedPickerStyle())
-                                 
-                             }
-            
-            /*
-             Now that we have the info firstName, Gender and adultOrChild, we have all of the basic details to build a person.
-             
-             All that's left to do is submit this information to Core Data, assign an ID to this person and transition to either the next person that needs details added or send the user directly to Trip Detail to see the output.
-             */
-            
-           
+                }
+                Section{
+                    
+                    Text("Basic Details")
+                    TextField("Enter First Name", text: $firstName)
+                    
+                }
+                
+                //Select Gender: Segmented Picker
+                Section(header: Text("Choose Gender: \(chooseGender)")){
+                    
+                    Picker("Gender", selection: $chooseGender){
+                        ForEach(genderArray, id: \.self) {
+                            Text($0)
+                        }
+                        
+                    }.pickerStyle(SegmentedPickerStyle())
+                    
+                }
+                
+                //Select Adult Or Child: Segmented Picker
+                Section(header: Text("Adult Or Child?: \(adultOrChild)")){
+                    
+                    Picker("Gender", selection: $adultOrChild){
+                        ForEach(adultChildArray, id: \.self) {
+                            Text($0)
+                        }
+                        
+                    }.pickerStyle(SegmentedPickerStyle())
+                    
+                }
+                
+                Button("save") {
+                    let addPeople = PackingList(context: self.moc)
+                    addPeople.firstName = self.firstName
+                    addPeople.gender = self.chooseGender
+                    addPeople.adultOrChild = self.adultOrChild
+                    
+                    //save the data
+                    try? self.moc.save()
+                    
+                    //dismiss sheet
+                                       self.presentationMode.wrappedValue.dismiss()   
+                }
+                
+                
+                
+                
                 
             }
             
         }
     }
+}
 struct AddPeople_Previews: PreviewProvider {
     static var previews: some View {
         AddPeople()
