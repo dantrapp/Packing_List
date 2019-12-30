@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct AddPeopleDisplayTest: View {
+struct AddPeopleDisplay: View {
     //create Environment for moc,  fetchrequest and private var boolean for sheet
     @Environment(\.managedObjectContext) var moc
     
@@ -75,7 +75,7 @@ struct AddPeopleDisplayTest: View {
 struct AddPeopleDisplayTest_Previews: PreviewProvider {
     static var previews: some View {
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        return AddPeopleDisplayTest().environment(\.managedObjectContext, context)
+        return AddPeopleDisplay().environment(\.managedObjectContext, context)
     }
 }
 #endif

@@ -16,14 +16,15 @@
 		7140EEEC23B2B5E70009DA79 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7140EEEA23B2B5E70009DA79 /* LaunchScreen.storyboard */; };
 		7140EEF423B2B6140009DA79 /* TripPlanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7140EEF323B2B6140009DA79 /* TripPlanner.swift */; };
 		7140EEF623B2B66D0009DA79 /* AddPeople.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7140EEF523B2B66D0009DA79 /* AddPeople.swift */; };
-		7140EEFB23B2B7390009DA79 /* ListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7140EEFA23B2B7390009DA79 /* ListRow.swift */; };
+		7140EEFB23B2B7390009DA79 /* ItemRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7140EEFA23B2B7390009DA79 /* ItemRow.swift */; };
 		7140EEFD23B2B7480009DA79 /* ListCategories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7140EEFC23B2B7480009DA79 /* ListCategories.swift */; };
 		7140EEFF23B2B75E0009DA79 /* SubList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7140EEFE23B2B75E0009DA79 /* SubList.swift */; };
 		7140EF0123B2B7B40009DA79 /* DefaultItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7140EF0023B2B7B40009DA79 /* DefaultItems.swift */; };
 		7140EF2823B435B30009DA79 /* ItemList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7140EF2723B435B30009DA79 /* ItemList.swift */; };
 		7140EF2A23B444630009DA79 /* ItemDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7140EF2923B444630009DA79 /* ItemDetail.swift */; };
 		7140EF2C23B46A0E0009DA79 /* TripList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7140EF2B23B46A0E0009DA79 /* TripList.swift */; };
-		717CF61723B7DE1D00BF5F8C /* AddPeopleDisplayTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717CF61623B7DE1D00BF5F8C /* AddPeopleDisplayTest.swift */; };
+		716EF0F223B86819008384F3 /* ItemListTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716EF0F123B86819008384F3 /* ItemListTest.swift */; };
+		717CF61723B7DE1D00BF5F8C /* AddPeopleDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717CF61623B7DE1D00BF5F8C /* AddPeopleDisplay.swift */; };
 		717CF61923B7E68600BF5F8C /* AddPeopleRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717CF61823B7E68600BF5F8C /* AddPeopleRow.swift */; };
 /* End PBXBuildFile section */
 
@@ -39,14 +40,15 @@
 		7140EEED23B2B5E70009DA79 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7140EEF323B2B6140009DA79 /* TripPlanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripPlanner.swift; sourceTree = "<group>"; };
 		7140EEF523B2B66D0009DA79 /* AddPeople.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPeople.swift; sourceTree = "<group>"; };
-		7140EEFA23B2B7390009DA79 /* ListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRow.swift; sourceTree = "<group>"; };
+		7140EEFA23B2B7390009DA79 /* ItemRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemRow.swift; sourceTree = "<group>"; };
 		7140EEFC23B2B7480009DA79 /* ListCategories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCategories.swift; sourceTree = "<group>"; };
 		7140EEFE23B2B75E0009DA79 /* SubList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubList.swift; sourceTree = "<group>"; };
 		7140EF0023B2B7B40009DA79 /* DefaultItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultItems.swift; sourceTree = "<group>"; };
 		7140EF2723B435B30009DA79 /* ItemList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemList.swift; sourceTree = "<group>"; };
 		7140EF2923B444630009DA79 /* ItemDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetail.swift; sourceTree = "<group>"; };
 		7140EF2B23B46A0E0009DA79 /* TripList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripList.swift; sourceTree = "<group>"; };
-		717CF61623B7DE1D00BF5F8C /* AddPeopleDisplayTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPeopleDisplayTest.swift; sourceTree = "<group>"; };
+		716EF0F123B86819008384F3 /* ItemListTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListTest.swift; sourceTree = "<group>"; };
+		717CF61623B7DE1D00BF5F8C /* AddPeopleDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPeopleDisplay.swift; sourceTree = "<group>"; };
 		717CF61823B7E68600BF5F8C /* AddPeopleRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPeopleRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -108,7 +110,7 @@
 				7140EEF323B2B6140009DA79 /* TripPlanner.swift */,
 				7140EEE323B2B5E60009DA79 /* TripDetail.swift */,
 				7140EEF523B2B66D0009DA79 /* AddPeople.swift */,
-				717CF61623B7DE1D00BF5F8C /* AddPeopleDisplayTest.swift */,
+				717CF61623B7DE1D00BF5F8C /* AddPeopleDisplay.swift */,
 				717CF61823B7E68600BF5F8C /* AddPeopleRow.swift */,
 				7140EF2923B444630009DA79 /* ItemDetail.swift */,
 			);
@@ -129,8 +131,9 @@
 				7140EF2B23B46A0E0009DA79 /* TripList.swift */,
 				7140EF2723B435B30009DA79 /* ItemList.swift */,
 				7140EEFC23B2B7480009DA79 /* ListCategories.swift */,
-				7140EEFA23B2B7390009DA79 /* ListRow.swift */,
+				7140EEFA23B2B7390009DA79 /* ItemRow.swift */,
 				7140EEFE23B2B75E0009DA79 /* SubList.swift */,
+				716EF0F123B86819008384F3 /* ItemListTest.swift */,
 			);
 			path = "Core Functionality";
 			sourceTree = "<group>";
@@ -207,15 +210,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				7140EF0123B2B7B40009DA79 /* DefaultItems.swift in Sources */,
-				717CF61723B7DE1D00BF5F8C /* AddPeopleDisplayTest.swift in Sources */,
+				717CF61723B7DE1D00BF5F8C /* AddPeopleDisplay.swift in Sources */,
 				7140EF2A23B444630009DA79 /* ItemDetail.swift in Sources */,
 				7140EEE223B2B5E50009DA79 /* Packing_List.xcdatamodeld in Sources */,
 				7140EEDD23B2B5E50009DA79 /* AppDelegate.swift in Sources */,
 				7140EEF623B2B66D0009DA79 /* AddPeople.swift in Sources */,
 				7140EEE423B2B5E60009DA79 /* TripDetail.swift in Sources */,
 				7140EEFF23B2B75E0009DA79 /* SubList.swift in Sources */,
+				716EF0F223B86819008384F3 /* ItemListTest.swift in Sources */,
 				7140EEF423B2B6140009DA79 /* TripPlanner.swift in Sources */,
-				7140EEFB23B2B7390009DA79 /* ListRow.swift in Sources */,
+				7140EEFB23B2B7390009DA79 /* ItemRow.swift in Sources */,
 				7140EF2C23B46A0E0009DA79 /* TripList.swift in Sources */,
 				717CF61923B7E68600BF5F8C /* AddPeopleRow.swift in Sources */,
 				7140EEDF23B2B5E50009DA79 /* SceneDelegate.swift in Sources */,

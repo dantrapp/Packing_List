@@ -7,8 +7,7 @@
 //
 
 import Foundation
-import UIKit
-import SwiftUI
+
 
 //Item Structure
 struct Item: Identifiable {
@@ -31,7 +30,7 @@ struct Category: Identifiable {
 //CATEGORY OBJECTS (remember to order by categoryId)
 
 //DEFAULT ITEMS CATEGORIES
-let defaultCategories : [Category] = [
+let defaultCategories = [
     Category(name: "Clothing", categoryId: 0, categoryName: "Default"),
     Category( name: "Important Documents", categoryId: 1, categoryName: "Default"),
     Category( name: "Toiletries", categoryId: 2, categoryName: "Default"),
@@ -39,32 +38,30 @@ let defaultCategories : [Category] = [
     Category( name: "Essentials", categoryId: 4, categoryName: "Default"),
     Category( name: "Electronics", categoryId: 5, categoryName: "Default"),
     Category( name: "Accessories", categoryId: 6, categoryName: "Default"),
-]
+
 
 //TRANSPORTATION CATEGORIES
 
-let transportation : [Category] =  [
     Category( name: "Airplane", categoryId: 0, categoryName: "Transportation"),
     Category( name: "Car", categoryId: 1, categoryName: "Transportation"),
     Category( name: "Train", categoryId: 2, categoryName: "Transportation"),
     Category( name: "Bus", categoryId: 3, categoryName: "Transportation"),
     Category( name: "Boat", categoryId: 4, categoryName: "Transportation"),
-]
+
 
 //CHILD CATEGORIES
-let child : [Category] =  [
+
     Category(name: "Baby", categoryId: 0, categoryName: "Child"),
     Category(name: "Infant", categoryId: 1, categoryName: "Child"),
     Category(name: "Toddler", categoryId: 2, categoryName: "Child"),
     Category(name: "School-Aged", categoryId: 3, categoryName: "Child"),
 ]
-
 //CATEGORYNAME ARRAY
 
 let categories = ["Clothing", "Important Documents", "Toiletries", "Health", "Essentials", "Electronics", "Accessories"]
 
 //DEFAULT ITEMS OBJECT
-let items : [Item] = [
+var items : [Item] = [
     
     //CLOTHING
     Item(name: "Hats", categoryName: "Clothing"),
@@ -78,5 +75,10 @@ let items : [Item] = [
     Item(name: "Socks", categoryName: "Clothing"),
     Item(name: "Underwear", categoryName: "Clothing"),
     Item(name: "Tank Tops", categoryName: "Clothing"),
+    //Electronics
+    Item(name: "Macbook", categoryName: "Electronics"),
+    Item(name: "Macbook Adapter", categoryName: "Electronics"),
+    Item(name: "iPad", categoryName: "Electronics"),
+    Item(name: "iPhone", categoryName: "Electronics"),
     
 ]

@@ -1,5 +1,5 @@
 //
-//  ListRow.swift
+//  ItemRow.swift
 //  Packing List
 //
 //  Created by Will Hustle on 12/24/19.
@@ -8,15 +8,13 @@
 
 import SwiftUI
 
-struct ListRow: View {
+struct ItemRow: View {
      //pass in item object to pull data
         var item: Item
     
         
         var body: some View {
-            
-          
-            
+
             //command -> embed in hstack
             HStack {
 
@@ -35,7 +33,7 @@ struct ListRow: View {
 
 struct ListRow_Previews: PreviewProvider {
       static var previews: some View {
-        ListRow(item: items[0]).previewLayout(.fixed(width: 500, height: 50))
+        ItemRow(item: items[0]).previewLayout(.fixed(width: 500, height: 50))
     }
 }
 
