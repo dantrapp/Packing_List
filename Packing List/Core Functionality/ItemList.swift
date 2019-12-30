@@ -10,14 +10,16 @@ import SwiftUI
 
 struct ItemList: View {
     
+//    let sections = Dictionary(grouping: sortedNames) { $0.categoryName }
+    
     var body: some View {
          NavigationView {
                 List {
-                    ForEach(Array(Set(items.compactMap{ $0[keyPath: \.categoryName] })), id: \.self) { category in
+                    ForEach(Array(Set(sortedNames.compactMap{ $0[keyPath: \.categoryName] })), id: \.self) { category in
                         Section(header: Text(category)) {
                             
                             //filter all categories
-                            ForEach(items.filter {
+                            ForEach(sortedNames.filter {
                                 $0.categoryName == category }) { currentItem in
                                 NavigationLink(destination: ItemDetail(itemData: currentItem)){
                                   
@@ -26,7 +28,7 @@ struct ItemList: View {
                                 
                                 
                              //I need to load these default items into Core Data
-                                
+                
                                 
                             }
                         }

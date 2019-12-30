@@ -67,6 +67,7 @@ var items : [Item] = [
     
     //CLOTHING
     Item(name: "Hats", categoryName: "Clothing", gender: "Unisex", adultChild: "Both"),
+    Item(name: "Dresses", categoryName: "Clothing", gender: "Female", adultChild: "Both"),
     Item(name: "Casual Shirts", categoryName: "Clothing", gender: "Unisex", adultChild: "Both"),
     Item(name: "Dress Shirts", categoryName: "Clothing", gender: "Unisex", adultChild: "Both"),
     Item(name: "Casual Pants", categoryName: "Clothing", gender: "Unisex", adultChild: "Both"),
@@ -87,16 +88,17 @@ var items : [Item] = [
     Item(name: "Laptop", categoryName: "Electronics", gender: "Unisex", adultChild: "Both"),
     Item(name: "Cellphone", categoryName: "Electronics", gender: "Unisex", adultChild: "Both"),
     Item(name: "Laptop Charger", categoryName: "Electronics", gender: "Unisex", adultChild: "Both"),
+    Item(name: "Tablets", categoryName: "Electronics", gender: "Unisex", adultChild: "Both"),
     Item(name: "Cellphone Charger", categoryName: "Electronics", gender: "Unisex", adultChild: "Both"),
     Item(name: "Powerbank", categoryName: "Electronics", gender: "Unisex", adultChild: "Both"),
     Item(name: "USB Travel Adapter", categoryName: "Electronics", gender: "Unisex", adultChild: "Both"),
     //Important Documents
-    Item(name: "Passport", categoryName: "Important Documents", gender: "Unisex", adultChild: "Both"),
-    Item(name: "Birth Certificate", categoryName: "Important Documents", gender: "Unisex", adultChild: "Both"),
-    Item(name: "Visa", categoryName: "Important Documents", gender: "Unisex", adultChild: "Both"),
-    Item(name: "Drivers License/ID Card", categoryName: "Important Documents", gender: "Unisex", adultChild: "Both"),
+    Item(name: "Passports", categoryName: "Important Documents", gender: "Unisex", adultChild: "Both"),
+    Item(name: "Birth Certificates", categoryName: "Important Documents", gender: "Unisex", adultChild: "Both"),
+    Item(name: "Visas", categoryName: "Important Documents", gender: "Unisex", adultChild: "Both"),
+    Item(name: "Drivers Licenses/ID Cards", categoryName: "Important Documents", gender: "Unisex", adultChild: "Both"),
     //Airplane
-    Item(name: "Boarding Pass/Tickets", categoryName: "Airplane", gender: "Unisex", adultChild: "Both"),
+    Item(name: "Boarding Passes/Tickets", categoryName: "Airplane", gender: "Unisex", adultChild: "Both"),
     Item(name: "Travel/Neck Pillow", categoryName: "Airplane", gender: "Unisex", adultChild: "Both"),
     Item(name: "Headphones", categoryName: "Airplane", gender: "Unisex", adultChild: "Both"),
     Item(name: "Headphone Jack Splitter", categoryName: "Airplane", gender: "Unisex", adultChild: "Both"),
@@ -120,7 +122,6 @@ var items : [Item] = [
     //ESSENTIALS
     Item(name: "Cameras", categoryName: "Essentials", gender: "Unisex", adultChild: "Both"),
     Item(name: "Keys", categoryName: "Essentials", gender: "Unisex", adultChild: "Both"),
-    Item(name: "Cameras", categoryName: "Essentials", gender: "Unisex", adultChild: "Both"),
     Item(name: "Wallet", categoryName: "Electronics", gender: "Male", adultChild: "Adult"),
     //Health & Medical
     Item(name: "Prescription Medication", categoryName: "Health", gender: "Unisex", adultChild: "Both"),
@@ -132,10 +133,27 @@ var items : [Item] = [
     Item(name: "Pill Case", categoryName: "Health", gender: "Unisex", adultChild: "Both"),
     Item(name: "Bug Repellent", categoryName: "Health", gender: "Unisex", adultChild: "Both"),
     Item(name: "Vaccinations", categoryName: "Health", gender: "Unisex", adultChild: "Both"),
+    Item(name: "Feminine Products", categoryName: "Health", gender: "Female", adultChild: "Adult"),
     //Toiletries
     Item(name: "Shampoo", categoryName: "Toiletries", gender: "Unisex", adultChild: "Both"),
-    Item(name: "Deodorant", categoryName: "Toiletries", gender: "Unisex", adultChild: "Both"),
-    Item(name: "Shampoo", categoryName: "Toiletries", gender: "Unisex", adultChild: "Both"),
+    Item(name: "Deodorant", categoryName: "Toiletries", gender: "Unisex", adultChild: "Adult"),
+        Item(name: "Conditioner", categoryName: "Toiletries", gender: "Unisex", adultChild: "Both"),
+        Item(name: "Soap", categoryName: "Toiletries", gender: "Unisex", adultChild: "Both"),
+        Item(name: "Toothbrushes", categoryName: "Toiletries", gender: "Unisex", adultChild: "Both"),
+        Item(name: "Toothpaste", categoryName: "Toiletries", gender: "Unisex", adultChild: "Both"),
+        Item(name: "Dental Floss", categoryName: "Toiletries", gender: "Unisex", adultChild: "Both"),
+        Item(name: "Hand Sanitizer", categoryName: "Toiletries", gender: "Unisex", adultChild: "Both"),
+        Item(name: "Razor", categoryName: "Toiletries", gender: "Unisex", adultChild: "Adult"),
+        Item(name: "Shaving Cream", categoryName: "Toiletries", gender: "Unisex", adultChild: "Adult"),
+        Item(name: "Bikini Wax", categoryName: "Toiletries", gender: "Female", adultChild: "Adult"),
+        Item(name: "Nail Clippers", categoryName: "Toiletries", gender: "Unisex", adultChild: "Both"),
+        Item(name: "Makeup", categoryName: "Toiletries", gender: "Female", adultChild: "Adult"),
+        Item(name: "Lotions & Moisturizers", categoryName: "Toiletries", gender: "Unisex", adultChild: "Both"),
+        Item(name: "Hair Styling Products", categoryName: "Toiletries", gender: "Unisex", adultChild: "Both"),
+        Item(name: "Hairbrushes/Combs", categoryName: "Toiletries", gender: "Unisex", adultChild: "Both"),
+        Item(name: "Curling/Flat Irons", categoryName: "Toiletries", gender: "Female", adultChild: "Adult"),
+        Item(name: "Hair Dryer", categoryName: "Toiletries", gender: "Unisex", adultChild: "Adult"),
+        Item(name: "Towels", categoryName: "Toiletries", gender: "Unisex", adultChild: "Both"),
     
     
 ]
