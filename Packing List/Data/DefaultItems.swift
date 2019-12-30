@@ -14,6 +14,8 @@ struct Item: Identifiable {
     var id = UUID()
     var name: String
     var categoryName: String
+    var gender: String //Male, Female or Unisex
+    var adultChild: String //Adult, Child or Both
     //var person: String
     //var child: false
 }
@@ -64,21 +66,85 @@ let categories = ["Clothing", "Important Documents", "Toiletries", "Health", "Es
 var items : [Item] = [
     
     //CLOTHING
-    Item(name: "Hats", categoryName: "Clothing"),
-    Item(name: "Shirts", categoryName: "Clothing"),
-    Item(name: "Pants", categoryName: "Clothing"),
-    Item(name: "Swimsuits", categoryName: "Clothing"),
-    Item(name: "Shorts", categoryName: "Clothing"),
-    Item(name: "Hoodies", categoryName: "Clothing"),
-    Item(name: "Sweaters", categoryName: "Clothing"),
-    Item(name: "Jackets", categoryName: "Clothing"),
-    Item(name: "Socks", categoryName: "Clothing"),
-    Item(name: "Underwear", categoryName: "Clothing"),
-    Item(name: "Tank Tops", categoryName: "Clothing"),
+    Item(name: "Hats", categoryName: "Clothing", gender: "Unisex", adultChild: "Both"),
+    Item(name: "Casual Shirts", categoryName: "Clothing", gender: "Unisex", adultChild: "Both"),
+    Item(name: "Dress Shirts", categoryName: "Clothing", gender: "Unisex", adultChild: "Both"),
+    Item(name: "Casual Pants", categoryName: "Clothing", gender: "Unisex", adultChild: "Both"),
+    Item(name: "Dress Pants", categoryName: "Clothing", gender: "Unisex", adultChild: "Both"),
+    Item(name: "Casual Shoes", categoryName: "Clothing", gender: "Unisex", adultChild: "Both"),
+    Item(name: "Dress Shoes", categoryName: "Clothing", gender: "Unisex", adultChild: "Both"),
+    Item(name: "Swimsuits", categoryName: "Clothing", gender: "Female", adultChild: "Both"),
+    Item(name: "Shorts", categoryName: "Clothing", gender: "Unisex", adultChild: "Both"),
+    Item(name: "Hoodies", categoryName: "Clothing", gender: "Unisex", adultChild: "Both"),
+    Item(name: "Sweaters", categoryName: "Clothing", gender: "Unisex", adultChild: "Both"),
+    Item(name: "Jackets", categoryName: "Clothing", gender: "Unisex", adultChild: "Both"),
+    Item(name: "Socks", categoryName: "Clothing", gender: "Unisex", adultChild: "Both"),
+    Item(name: "Underwear", categoryName: "Clothing", gender: "Unisex", adultChild: "Both"),
+    Item(name: "Tank Tops", categoryName: "Clothing", gender: "Unisex", adultChild: "Adult"),
+    Item(name: "Pajamas", categoryName: "Clothing", gender: "Unisex", adultChild: "Both"),
+    Item(name: "Belts", categoryName: "Clothing", gender: "Unisex", adultChild: "Adult"),
     //Electronics
-    Item(name: "Macbook", categoryName: "Electronics"),
-    Item(name: "Macbook Adapter", categoryName: "Electronics"),
-    Item(name: "iPad", categoryName: "Electronics"),
-    Item(name: "iPhone", categoryName: "Electronics"),
+    Item(name: "Laptop", categoryName: "Electronics", gender: "Unisex", adultChild: "Both"),
+    Item(name: "Cellphone", categoryName: "Electronics", gender: "Unisex", adultChild: "Both"),
+    Item(name: "Laptop Charger", categoryName: "Electronics", gender: "Unisex", adultChild: "Both"),
+    Item(name: "Cellphone Charger", categoryName: "Electronics", gender: "Unisex", adultChild: "Both"),
+    Item(name: "Powerbank", categoryName: "Electronics", gender: "Unisex", adultChild: "Both"),
+    Item(name: "USB Travel Adapter", categoryName: "Electronics", gender: "Unisex", adultChild: "Both"),
+    //Important Documents
+    Item(name: "Passport", categoryName: "Important Documents", gender: "Unisex", adultChild: "Both"),
+    Item(name: "Birth Certificate", categoryName: "Important Documents", gender: "Unisex", adultChild: "Both"),
+    Item(name: "Visa", categoryName: "Important Documents", gender: "Unisex", adultChild: "Both"),
+    Item(name: "Drivers License/ID Card", categoryName: "Important Documents", gender: "Unisex", adultChild: "Both"),
+    //Airplane
+    Item(name: "Boarding Pass/Tickets", categoryName: "Airplane", gender: "Unisex", adultChild: "Both"),
+    Item(name: "Travel/Neck Pillow", categoryName: "Airplane", gender: "Unisex", adultChild: "Both"),
+    Item(name: "Headphones", categoryName: "Airplane", gender: "Unisex", adultChild: "Both"),
+    Item(name: "Headphone Jack Splitter", categoryName: "Airplane", gender: "Unisex", adultChild: "Both"),
+    Item(name: "Earplugs", categoryName: "Airplane", gender: "Unisex", adultChild: "Both"),
+    Item(name: "Empty Water Bottle", categoryName: "Airplane", gender: "Unisex", adultChild: "Both"),
+    //Baby
+    Item(name: "Baby Bottles", categoryName: "Baby", gender: "Unisex", adultChild: "Child"),
+    Item(name: "Infant Formula", categoryName: "Baby", gender: "Unisex", adultChild: "Child"),
+    Item(name: "Diaper Bag", categoryName: "Baby", gender: "Unisex", adultChild: "Child"),
+    Item(name: "Wipes", categoryName: "Baby", gender: "Unisex", adultChild: "Child"),
+    Item(name: "Baby Food", categoryName: "Baby", gender: "Unisex", adultChild: "Child"),
+    Item(name: "Baby Carrier", categoryName: "Baby", gender: "Unisex", adultChild: "Child"),
+    Item(name: "Baby Clothing", categoryName: "Baby", gender: "Unisex", adultChild: "Child"),
+    Item(name: "Diapers", categoryName: "Baby", gender: "Unisex", adultChild: "Child"),
+    Item(name: "Breast Pump", categoryName: "Baby", gender: "Unisex", adultChild: "Child"),
+    Item(name: "Baby Toys", categoryName: "Baby", gender: "Unisex", adultChild: "Child"),
+    Item(name: "Baby's Favorite Thing(s)", categoryName: "Baby", gender: "Unisex", adultChild: "Child"),
+    Item(name: "Blanket", categoryName: "Baby", gender: "Unisex", adultChild: "Child"),
+    Item(name: "Pacifier", categoryName: "Baby", gender: "Unisex", adultChild: "Child"),
+    Item(name: "Baby Medication", categoryName: "Baby", gender: "Unisex", adultChild: "Child"),
+    //ESSENTIALS
+    Item(name: "Cameras", categoryName: "Essentials", gender: "Unisex", adultChild: "Both"),
+    Item(name: "Keys", categoryName: "Essentials", gender: "Unisex", adultChild: "Both"),
+    Item(name: "Cameras", categoryName: "Essentials", gender: "Unisex", adultChild: "Both"),
+    Item(name: "Wallet", categoryName: "Electronics", gender: "Male", adultChild: "Adult"),
+    //Health & Medical
+    Item(name: "Prescription Medication", categoryName: "Health", gender: "Unisex", adultChild: "Both"),
+    Item(name: "Contact Lenses", categoryName: "Health", gender: "Unisex", adultChild: "Both"),
+    Item(name: "Contact Lens Solution", categoryName: "Health", gender: "Unisex", adultChild: "Both"),
+    Item(name: "Glasses", categoryName: "Health", gender: "Unisex", adultChild: "Both"),
+    Item(name: "Vitamins", categoryName: "Health", gender: "Unisex", adultChild: "Both"),
+    Item(name: "Contraceptives", categoryName: "Health", gender: "Unisex", adultChild: "Adult"),
+    Item(name: "Pill Case", categoryName: "Health", gender: "Unisex", adultChild: "Both"),
+    Item(name: "Bug Repellent", categoryName: "Health", gender: "Unisex", adultChild: "Both"),
+    Item(name: "Vaccinations", categoryName: "Health", gender: "Unisex", adultChild: "Both"),
+    //Toiletries
+    Item(name: "Shampoo", categoryName: "Toiletries", gender: "Unisex", adultChild: "Both"),
+    Item(name: "Deodorant", categoryName: "Toiletries", gender: "Unisex", adultChild: "Both"),
+    Item(name: "Shampoo", categoryName: "Toiletries", gender: "Unisex", adultChild: "Both"),
+    
     
 ]
+
+let sortedNames = items.sorted {
+    $0.name < $1.name
+}
+let sortedCategories = items.sorted {
+    $0.categoryName < $1.categoryName
+}
+
+

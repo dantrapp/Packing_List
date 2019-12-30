@@ -24,6 +24,7 @@
 		7140EF2A23B444630009DA79 /* ItemDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7140EF2923B444630009DA79 /* ItemDetail.swift */; };
 		7140EF2C23B46A0E0009DA79 /* TripList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7140EF2B23B46A0E0009DA79 /* TripList.swift */; };
 		716EF0F223B86819008384F3 /* ItemListTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716EF0F123B86819008384F3 /* ItemListTest.swift */; };
+		716EF0F823BA94E8008384F3 /* ItemListTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716EF0F723BA94E8008384F3 /* ItemListTesting.swift */; };
 		717CF61723B7DE1D00BF5F8C /* AddPeopleDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717CF61623B7DE1D00BF5F8C /* AddPeopleDisplay.swift */; };
 		717CF61923B7E68600BF5F8C /* AddPeopleRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717CF61823B7E68600BF5F8C /* AddPeopleRow.swift */; };
 /* End PBXBuildFile section */
@@ -48,6 +49,7 @@
 		7140EF2923B444630009DA79 /* ItemDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetail.swift; sourceTree = "<group>"; };
 		7140EF2B23B46A0E0009DA79 /* TripList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripList.swift; sourceTree = "<group>"; };
 		716EF0F123B86819008384F3 /* ItemListTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListTest.swift; sourceTree = "<group>"; };
+		716EF0F723BA94E8008384F3 /* ItemListTesting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListTesting.swift; sourceTree = "<group>"; };
 		717CF61623B7DE1D00BF5F8C /* AddPeopleDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPeopleDisplay.swift; sourceTree = "<group>"; };
 		717CF61823B7E68600BF5F8C /* AddPeopleRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPeopleRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -134,6 +136,7 @@
 				7140EEFA23B2B7390009DA79 /* ItemRow.swift */,
 				7140EEFE23B2B75E0009DA79 /* SubList.swift */,
 				716EF0F123B86819008384F3 /* ItemListTest.swift */,
+				716EF0F723BA94E8008384F3 /* ItemListTesting.swift */,
 			);
 			path = "Core Functionality";
 			sourceTree = "<group>";
@@ -217,6 +220,7 @@
 				7140EEF623B2B66D0009DA79 /* AddPeople.swift in Sources */,
 				7140EEE423B2B5E60009DA79 /* TripDetail.swift in Sources */,
 				7140EEFF23B2B75E0009DA79 /* SubList.swift in Sources */,
+				716EF0F823BA94E8008384F3 /* ItemListTesting.swift in Sources */,
 				716EF0F223B86819008384F3 /* ItemListTest.swift in Sources */,
 				7140EEF423B2B6140009DA79 /* TripPlanner.swift in Sources */,
 				7140EEFB23B2B7390009DA79 /* ItemRow.swift in Sources */,

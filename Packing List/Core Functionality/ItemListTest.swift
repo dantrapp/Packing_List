@@ -11,8 +11,8 @@ import SwiftUI
 
 
 struct ItemListTest: View {
-
     
+
     var body: some View {
         NavigationView {
             List {
@@ -23,7 +23,6 @@ struct ItemListTest: View {
 
                             }
                         }
-                        //add onMove to rearrange items
                         .onMove {
                             (indexSet, index) in
                             items.move(fromOffsets: indexSet, toOffset: index)

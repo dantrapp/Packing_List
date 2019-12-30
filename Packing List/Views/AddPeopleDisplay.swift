@@ -34,8 +34,11 @@ struct AddPeopleDisplay: View {
                     ForEach(addPeople, id: \.self) { people in
                         AddPeopleRow(firstName: people.firstName ?? "Empty!", gender: people.gender ?? "Empty!", adultOrChild: people.adultOrChild ?? "Empty!")
                     }.onDelete(perform: removePeople)
+                    
                 }
+                
             }
+                
                 
             .navigationBarTitle("People Added")
             .navigationBarItems(trailing:
@@ -48,6 +51,7 @@ struct AddPeopleDisplay: View {
                 .sheet(isPresented: $showingAddPeopleScreen) {
                 AddPeople().environment(\.managedObjectContext, self.moc)
             }
+            
  
         }
         
