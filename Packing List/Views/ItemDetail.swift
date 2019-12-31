@@ -10,27 +10,91 @@ import SwiftUI
 
 struct ItemDetail : View {
     
+    //establish connection to moc for core data use and presentation mode for sheet
+    @Environment(\.managedObjectContext) var moc
+    
+
+//     @Environment(\.presentationMode) var presentationMode
+     
+    
+    @FetchRequest(entity: PackingList.entity(), sortDescriptors: []
+        
+    ) var addItem: FetchedResults<PackingList>
+    
+    
+    
     //bring in the struct
     var itemData : Item
     
     @State var newItem = ""
     
+    
+
+    //capture for Core Data
+    @State var itemName: String = ""
+    @State var itemCategory: String = ""
+    @State var itemPriority : String = ""
+    
+    //priority array for Picker values
+    @State var priorityArray = ["Undecided 😐", "Probably  👍", "Definitely! 🥰"]
+    
     var body: some View {
         NavigationView {
             
-            //list the items here
+            //Add Item
             Form {
                 Section(header: Text("Add The \(itemData.name) You Want To Pack")){
                     
-                    TextField("Add \(itemData.name)", text: $newItem)
-                }
+                    TextField("Add \(itemData.name)", text: $itemName)
                     
-                    Section(header: Text("Current \(itemData.name) You're Packing")){
-                        Text("Pull items from Core Data and display as current packing inventory in List format. Would be great to add an image as well so people can view the items. This will also need a way to edit/delete (Swipe?) items from the list, and Core Data.").frame(height: 400)
+                }
+                //Select Priority
+                Section(header: Text("Select The Priority Of This Item")){
+                    
+                    Picker("Priority", selection: $itemPriority){
+                        ForEach(priorityArray, id: \.self) {
+                            Text($0)
+                        }
+                        
+                    }.pickerStyle(SegmentedPickerStyle())
+                    
+                }
+                Section{
+                    HStack{
+                        Spacer()
+                        Button(("save")) {
+                            let addItem = PackingList(context: self.moc)
+                            addItem.itemName = self.itemName
+                            addItem.itemCategory = self.itemData.categoryName
+                            addItem.itemPriority = self.itemPriority
+                            
+                            //save the data
+                            try? self.moc.save()
+                            
+                            
+                        }//error checking form values for empty. If not empty, show save button.
+                            .disabled(itemName.isEmpty ||  itemPriority.isEmpty)
+                        Spacer()
                     }
-                    
                 }
-             .navigationBarTitle(Text(itemData.name), displayMode: .large)
+                
+                
+                //LIST
+                
+                      List{
+                         Section{
+                             ForEach(addItem, id: \.self) { currentItem in
+                                Text("\(currentItem.itemName ?? "Empty!!")")
+                             }//.onDelete(perform: removePeople)
+                            
+                         }
+                         
+                     }
+                .listStyle(GroupedListStyle())
+                
+                
+            }
+            .navigationBarTitle(Text(itemData.name), displayMode: .large)
         }
         
         
@@ -39,8 +103,17 @@ struct ItemDetail : View {
 
 
 
+//struct ItemDetail_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ItemDetail(itemData: items[2])
+//    }
+//}
+
+#if DEBUG
 struct ItemDetail_Previews: PreviewProvider {
     static var previews: some View {
-        ItemDetail(itemData: items[2])
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        return ItemDetail(itemData: items[2]).environment(\.managedObjectContext, context)
     }
 }
+#endif
