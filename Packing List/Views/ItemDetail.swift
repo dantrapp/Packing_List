@@ -13,23 +13,21 @@ struct ItemDetail : View {
     //establish connection to moc for core data use and presentation mode for sheet
     @Environment(\.managedObjectContext) var moc
     
-
-//     @Environment(\.presentationMode) var presentationMode
-     
+    
+//    @Environment(\.presentationMode) var presentationMode
+//
     
     @FetchRequest(entity: PackingList.entity(), sortDescriptors: []
         
     ) var addItem: FetchedResults<PackingList>
     
+    //Modal Var
+    @State private var showingAddItemScreen = false
     
     
     //bring in the struct
     var itemData : Item
     
-    @State var newItem = ""
-    
-    
-
     //capture for Core Data
     @State var itemName: String = ""
     @State var itemCategory: String = ""
@@ -40,74 +38,35 @@ struct ItemDetail : View {
     
     var body: some View {
         NavigationView {
-            
-            //Add Item
-            Form {
-                Section(header: Text("Add The \(itemData.name) You Want To Pack")){
-                    
-                    TextField("Add \(itemData.name)", text: $itemName)
-                    
-                }
-                //Select Priority
-                Section(header: Text("Select The Priority Of This Item")){
-                    
-                    Picker("Priority", selection: $itemPriority){
-                        ForEach(priorityArray, id: \.self) {
-                            Text($0)
-                        }
-                        
-                    }.pickerStyle(SegmentedPickerStyle())
-                    
-                }
+            List{
                 Section{
-                    HStack{
-                        Spacer()
-                        Button(("save")) {
-                            let addItem = PackingList(context: self.moc)
-                            addItem.itemName = self.itemName
-                            addItem.itemCategory = self.itemData.categoryName
-                            addItem.itemPriority = self.itemPriority
-                            
-                            //save the data
-                            try? self.moc.save()
-                            
-                            
-                        }//error checking form values for empty. If not empty, show save button.
-                            .disabled(itemName.isEmpty ||  itemPriority.isEmpty)
-                        Spacer()
-                    }
+                    ForEach(addItem, id: \.self) { currentItem in
+                        Text("\(currentItem.itemName ?? "Empty!!")")
+                    }//.onDelete(perform: removePeople)
+                    
                 }
-                
-                
-                //LIST
-                
-                      List{
-                         Section{
-                             ForEach(addItem, id: \.self) { currentItem in
-                                Text("\(currentItem.itemName ?? "Empty!!")")
-                             }//.onDelete(perform: removePeople)
-                            
-                         }
-                         
-                     }
-                .listStyle(GroupedListStyle())
-                
                 
             }
-            .navigationBarTitle(Text(itemData.name), displayMode: .large)
+            .listStyle(GroupedListStyle())
+            
+            
+        
+        .navigationBarTitle(Text(itemData.name), displayMode: .large)
+        .navigationBarItems(trailing:
+            Button(action: {
+                self.showingAddItemScreen.toggle()
+            }) {
+                Image(systemName: "plus")
+            }
+        )
+            .sheet(isPresented: $showingAddItemScreen) {
+                AddNewItem(itemData: items[2]).environment(\.managedObjectContext, self.moc)
         }
         
-        
     }
+    }
+    
 }
-
-
-
-//struct ItemDetail_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ItemDetail(itemData: items[2])
-//    }
-//}
 
 #if DEBUG
 struct ItemDetail_Previews: PreviewProvider {

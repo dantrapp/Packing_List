@@ -111,10 +111,10 @@
 				7140EEE323B2B5E60009DA79 /* TripDetail.swift */,
 				7140EEF523B2B66D0009DA79 /* AddPeople.swift */,
 				717CF61623B7DE1D00BF5F8C /* AddPeopleDisplay.swift */,
+				71E6E61723BBED0200709765 /* AddNewItem.swift */,
 				7140EF2923B444630009DA79 /* ItemDetail.swift */,
 				7140EF2723B435B30009DA79 /* ItemList.swift */,
 				7140EF2B23B46A0E0009DA79 /* TripList.swift */,
-				71E6E61723BBED0200709765 /* AddNewItem.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
