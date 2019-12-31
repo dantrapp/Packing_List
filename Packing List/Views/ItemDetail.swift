@@ -14,8 +14,8 @@ struct ItemDetail : View {
     @Environment(\.managedObjectContext) var moc
     
     
-//    @Environment(\.presentationMode) var presentationMode
-//
+   @Environment(\.presentationMode) var presentationMode
+
     
     @FetchRequest(entity: PackingList.entity(), sortDescriptors: []
         
@@ -56,6 +56,7 @@ struct ItemDetail : View {
             Button(action: {
                 self.showingAddItemScreen.toggle()
             }) {
+                Text("Add \(itemData.name)")
                 Image(systemName: "plus")
             }
         )
