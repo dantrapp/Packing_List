@@ -27,25 +27,19 @@ struct ItemOneViewTesting: View {
     
     
     var body: some View {
-        NavigationView{
+        NavigationView {
             //Add Item
             Form {
-                HStack{
-                    Spacer()
-                    Text("Add \(itemData.name)").font(.largeTitle)
-                    Spacer()
-                }
-                Section{
-                    
-                    TextField("Enter The Name Of The Item", text: $itemName)
+              
+                    TextField("Add \(itemData.name)", text: $itemName)
                         .padding(.all, 5)
                         .font(Font.system(size: 25, design: .default)).multilineTextAlignment(.center).textFieldStyle(RoundedBorderTextFieldStyle())
                     
-                }
+                
                 
                 //Select Priority
-                Section(header: Text("Select The Priority Of This Item")){
-                    
+               
+//                    Text("Select The Priority Of This Item")
                     Picker(selection: $itemPriority, label:Text("")){
                         Text("Undecided 😐").tag("😐")
                         Text("Probably 👍").tag("👍")
@@ -53,8 +47,9 @@ struct ItemOneViewTesting: View {
                         
                     }.pickerStyle(SegmentedPickerStyle())
                     
-                }
-                Section{
+                
+                
+             
                     HStack{
                         Spacer()
                         Button(("SAVE ITEM ✅")) {
@@ -77,7 +72,7 @@ struct ItemOneViewTesting: View {
                     }
                     
                     
-                }
+                
                 
                 //Text("Print List")
                              ForEach(addItem, id: \.self) { currentItem in
@@ -89,8 +84,12 @@ struct ItemOneViewTesting: View {
             
 
             }
+            .navigationBarTitle(Text(itemData.name), displayMode: .large)
             
         }
+        
+      
+    
     }
     
     //remove item from core data

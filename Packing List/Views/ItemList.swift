@@ -21,7 +21,7 @@ struct ItemList: View {
                             //filter all categories
                             ForEach(sortedNames.filter {
                                 $0.categoryName == category }) { currentItem in
-                                NavigationLink(destination: ItemDetail(itemData: currentItem)){
+                                NavigationLink(destination: ItemOneViewTesting(itemData: currentItem)){
                                   
                             //add item names to rows
                                     Text("\(currentItem.name)") }
