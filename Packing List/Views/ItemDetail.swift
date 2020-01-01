@@ -14,12 +14,12 @@ struct ItemDetail : View {
     @Environment(\.managedObjectContext) var moc
     
     
-   @Environment(\.presentationMode) var presentationMode
+//   @Environment(\.presentationMode) var presentationMode
 
-    
-    @FetchRequest(entity: PackingList.entity(), sortDescriptors: []
+    //fetch and order by itemName ascending
+    @FetchRequest(entity: PackingList.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \PackingList.itemPriority, ascending: false)])
         
-    ) var addItem: FetchedResults<PackingList>
+     var addItem: FetchedResults<PackingList>
     
     //Modal Var
     @State private var showingAddItemScreen = false
@@ -32,17 +32,19 @@ struct ItemDetail : View {
     @State var itemName: String = ""
     @State var itemCategory: String = ""
     @State var itemPriority : String = ""
-    
-    //priority array for Picker values
-    @State var priorityArray = ["Undecided 😐", "Probably  👍", "Definitely! 🥰"]
+
     
     var body: some View {
         NavigationView {
             List{
                 Section{
                     ForEach(addItem, id: \.self) { currentItem in
-                        Text("\(currentItem.itemName ?? "Empty!!")")
-                    }//.onDelete(perform: removePeople)
+                        ItemRow(name: currentItem.itemName ?? "Empty!", priority: currentItem.itemPriority ?? "Empty!")
+                        
+//                        \\(currentItem.itemType ?? "Empty!!")
+                                       
+                        
+                    }.onDelete(perform: removeItem)
                     
                 }
                 
@@ -56,7 +58,7 @@ struct ItemDetail : View {
             Button(action: {
                 self.showingAddItemScreen.toggle()
             }) {
-                Text("Add \(itemData.name)")
+                Text("Add Item")
                 Image(systemName: "plus")
             }
         )
@@ -66,6 +68,19 @@ struct ItemDetail : View {
         
     }
     }
+    
+    //remove people from core data
+              func removeItem(at offsets: IndexSet) {
+                  for index in offsets {
+                      let item = addItem[index]
+                      self.moc.delete(item)
+                  }
+                  do {
+                      try self.moc.save()
+                  } catch {
+          //            print(error.localizedDescription)
+                  }
+              }
     
 }
 

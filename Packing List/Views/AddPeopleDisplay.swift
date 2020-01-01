@@ -14,8 +14,8 @@ struct AddPeopleDisplay: View {
     
     
     @FetchRequest(entity: PackingList.entity(), sortDescriptors: []
-    
-    ) var addPeople: FetchedResults<PackingList>
+
+    )var addPeople: FetchedResults<PackingList>
     
     @State private var showingAddPeopleScreen = false
     

@@ -10,7 +10,9 @@ import SwiftUI
 
 struct ItemRow: View {
      //pass in item object to pull data
-        var item: Item
+        var name: String
+//        var date: Date = Date()
+        var priority: String = ""
     
         
         var body: some View {
@@ -18,8 +20,8 @@ struct ItemRow: View {
             //command -> embed in hstack
             HStack {
 
-                //Player Name
-                Text(item.name).font(.system(size: 18)).minimumScaleFactor(0.8).lineLimit(1)
+                //item name
+                Text(name).font(.system(size: 16)).minimumScaleFactor(0.8).lineLimit(1)
                 
                 
 //                Text("> \(item.categoryName)").font(.system(size: 18)).minimumScaleFactor(0.8).lineLimit(1)
@@ -33,7 +35,7 @@ struct ItemRow: View {
 
 struct ListRow_Previews: PreviewProvider {
       static var previews: some View {
-        ItemRow(item: items[0]).previewLayout(.fixed(width: 500, height: 50))
+        ItemRow(name: "String").previewLayout(.fixed(width: 500, height: 50))
     }
 }
 

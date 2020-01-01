@@ -23,7 +23,7 @@ struct AddNewItem: View {
     
     //capture for Core Data
     @State var itemName: String = ""
-    @State var itemCategory: String = ""
+    @State var itemType: String = ""
     @State var itemPriority : String = ""
     
     //priority array for Picker values
@@ -33,48 +33,56 @@ struct AddNewItem: View {
         NavigationView{
             //Add Item
             Form {
-                 Text("Add \(itemData.name)").font(.largeTitle)
+                Text("Add \(itemData.name)").font(.largeTitle)
                 Section(){
                     
                     TextField("Enter The Name Of The Item Here", text: $itemName)
                     
                 }
+                Section{
+                    Text("Category:  \(itemType)").font(.caption)
+                }
                 //Select Priority
                 Section(header: Text("Select The Priority Of This Item")){
                     
-                    Picker("Priority", selection: $itemPriority){
-                        ForEach(priorityArray, id: \.self) {
-                            Text($0)
-                        }
+                    Picker(selection: $itemPriority, label:Text("")){
+                        Text("Undecided 😐").tag("😐")
+                        Text("Probably  👍").tag("👍")
+                        Text("Definitely! 🥰").tag("🥰")
                         
-                    }.pickerStyle(SegmentedPickerStyle())
+//                                                                       ForEach(priorityArray, id: \.self) {
+//                                                                           Text($0)
+//                        
+//                    }
                     
-                }
-                Section{
-                    HStack{
-                        Spacer()
-                        Button(("save")) {
-                            let addItem = PackingList(context: self.moc)
-                            addItem.itemName = self.itemName
-                            addItem.itemCategory = self.itemData.categoryName
-                            addItem.itemPriority = self.itemPriority
-                            
-                            //save the data
-                            try? self.moc.save()
+                }.pickerStyle(SegmentedPickerStyle())
+                
+            }
+            Section{
+                HStack{
+                    Spacer()
+                    Button(("SAVE ITEM ✅")) {
+                        let addItem = PackingList(context: self.moc)
+                        addItem.itemName = self.itemName
+                        addItem.itemType = self.itemType
+                        addItem.itemPriority = self.itemPriority
+                        
+                        //save the data
+                        try? self.moc.save()
                         //dismiss sheet
-                                                           self.presentationMode.wrappedValue.dismiss()
-                            
-                        }//error checking form values for empty. If not empty, show save button.
-                            .disabled(itemName.isEmpty ||  itemPriority.isEmpty)
-                        Spacer()
-                    }
+                        self.presentationMode.wrappedValue.dismiss()
+                        
+                    }//error checking form values for empty. If not empty, show save button.
+                        .disabled(itemName.isEmpty ||  itemPriority.isEmpty)
+                    Spacer()
                 }
             }
         }
     }
 }
-    struct AddNewItem_Previews: PreviewProvider {
-        static var previews: some View {
-            AddNewItem(itemData: items[2])
-        }
+}
+struct AddNewItem_Previews: PreviewProvider {
+    static var previews: some View {
+        AddNewItem(itemData: items[2])
+    }
 }

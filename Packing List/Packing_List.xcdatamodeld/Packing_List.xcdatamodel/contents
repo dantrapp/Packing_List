@@ -12,6 +12,7 @@
         <attribute name="itemImage" optional="YES" attributeType="Binary"/>
         <attribute name="itemName" optional="YES" attributeType="String"/>
         <attribute name="itemPriority" optional="YES" attributeType="String"/>
+        <attribute name="itemType" optional="YES" attributeType="String"/>
         <attribute name="numberOfPeople" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="peopleID" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="returnDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
@@ -19,6 +20,6 @@
         <attribute name="tripID" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
     </entity>
     <elements>
-        <element name="PackingList" positionX="-54" positionY="-9" width="128" height="283"/>
+        <element name="PackingList" positionX="-54" positionY="-9" width="128" height="298"/>
     </elements>
 </model>
