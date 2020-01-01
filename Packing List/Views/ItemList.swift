@@ -21,7 +21,7 @@ struct ItemList: View {
                             //filter all categories
                             ForEach(sortedNames.filter {
                                 $0.categoryName == category }) { currentItem in
-                                NavigationLink(destination: ItemOneViewTesting(itemData: currentItem)){
+                                NavigationLink(destination: ItemDetail(itemData: currentItem)){
                                   
                             //add item names to rows
                                     Text("\(currentItem.name)") }
@@ -50,8 +50,17 @@ struct ItemList: View {
     
     
     
-    struct ItemList_Previews: PreviewProvider {
-        static var previews: some View {
-            ItemList()
-        }
+//    struct ItemList_Previews: PreviewProvider {
+//        static var previews: some View {
+//            ItemList()
+//        }
+//}
+
+#if DEBUG
+struct ItemList_Previews: PreviewProvider {
+    static var previews: some View {
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        return ItemList().environment(\.managedObjectContext, context)
+    }
 }
+#endif

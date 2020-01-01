@@ -44,7 +44,7 @@ struct ItemRow: View {
     }
 }
 
-struct ListRow_Previews: PreviewProvider {
+struct ItemRow_Previews: PreviewProvider {
     static var previews: some View {
         ItemRow(name: "String").previewLayout(.fixed(width: 500, height: 50))
     }
