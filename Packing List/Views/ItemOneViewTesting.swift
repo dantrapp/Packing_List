@@ -25,6 +25,7 @@ struct ItemOneViewTesting: View {
     @State var itemType = ""
     @State var itemPriority = ""
     
+    
     var body: some View {
         NavigationView{
             //Add Item
@@ -61,6 +62,7 @@ struct ItemOneViewTesting: View {
                             addItem.itemName = self.itemName
                             addItem.itemType = self.itemType
                             addItem.itemPriority = self.itemPriority
+                            addItem.itemDate = Date()
                             
                             //set to empty string to clear textfield for another item
                             self.itemName = ""
