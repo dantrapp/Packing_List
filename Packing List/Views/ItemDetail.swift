@@ -24,86 +24,99 @@ struct ItemDetail: View {
     @State var itemName  = ""
     @State var itemType = ""
     @State var itemPriority = ""
+    @State var itemQuantity = 1
+    @State var itemPerson = ""
     
     
     var body: some View {
         NavigationView {
             //Add Item
             Form {
-              
-                    TextField("Add \(itemData.name)", text: $itemName)
-                        .padding(.all, 5)
-                        .font(Font.system(size: 25, design: .default)).multilineTextAlignment(.center).textFieldStyle(RoundedBorderTextFieldStyle())
-                    
+                
+                TextField("Add \(itemData.name)", text: $itemName)
+                    .padding(.all, 5)
+                    .font(Font.system(size: 25, design: .default)).multilineTextAlignment(.center).textFieldStyle(RoundedBorderTextFieldStyle())
+                
+                //Select Quantity
+                HStack{
+                    Stepper(value: $itemQuantity, in: 1...25, step: 1){
+                        Text("How Many \(itemData.name) to add?")
+                    }
+                    Text("\(itemQuantity)")
+                }
                 
                 
                 //Select Priority
-               
-//                    Text("Select The Priority Of This Item")
-                    Picker(selection: $itemPriority, label:Text("")){
-                        Text("Undecided 😐").tag("😐")
-                        Text("Probably 👍").tag("👍")
-                        Text("Definitely! 🥰").tag("🥰")
+                
+                //                    Text("Select The Priority Of This Item")
+                Picker(selection: $itemPriority, label:Text("")){
+                    Text("Undecided 😐").tag("😐")
+                    Text("Probably 👍").tag("👍")
+                    Text("Definitely! 🥰").tag("🥰")
+                    
+                }.pickerStyle(SegmentedPickerStyle())
+                
+                
+                
+                
+                HStack{
+                    Spacer()
+                    Button(("SAVE ITEM ✅")) {
+                        let addItem = PackingList(context: self.moc)
                         
-                    }.pickerStyle(SegmentedPickerStyle())
-                    
+                        addItem.itemName = self.itemName
+                        addItem.itemType = self.itemType
+                        addItem.itemPriority = self.itemPriority
+                        addItem.itemQuantity = Int32(self.itemQuantity)
+                        addItem.itemDate = Date()
+                        
+                        
+                        
+                        
+                        //set to empty string to clear textfield for another item
+                        self.itemName = ""
+                        
+                        //save the data
+                        try? self.moc.save()
+                        //dismiss sheet
+                        
+                    }//error checking form values for empty. If not empty, show save button.
+                        .disabled(itemName.isEmpty ||  itemPriority.isEmpty)
+                    Spacer()
+                }
                 
                 
-             
-                    HStack{
-                        Spacer()
-                        Button(("SAVE ITEM ✅")) {
-                            let addItem = PackingList(context: self.moc)
-                            addItem.itemName = self.itemName
-                            addItem.itemType = self.itemType
-                            addItem.itemPriority = self.itemPriority
-                            addItem.itemDate = Date()
-                            
-                            //set to empty string to clear textfield for another item
-                            self.itemName = ""
-                            
-                            //save the data
-                            try? self.moc.save()
-                            //dismiss sheet
-                            
-                        }//error checking form values for empty. If not empty, show save button.
-                            .disabled(itemName.isEmpty ||  itemPriority.isEmpty)
-                        Spacer()
-                    }
-                    
-                    
                 
                 
                 //Text("Print List")
-                             ForEach(addItem, id: \.self) { currentItem in
-                                 ItemRow(name: currentItem.itemName ?? "Empty!", priority: currentItem.itemPriority ?? "Empty!")
-                
-                
-            }
+                ForEach(addItem, id: \.self) { currentItem in
+                    ItemRow(name: currentItem.itemName ?? "Empty!", priority: currentItem.itemPriority ?? "Empty!", quantity: Int(currentItem.itemQuantity))
+                    
+                }
                 .onDelete(perform: removeItem)
-            
-
+                
+                
             }
             .navigationBarTitle(Text(itemData.name), displayMode: .large)
             
         }
         
-      
-    
+        
+        
     }
     
     //remove item from core data
-              func removeItem(at offsets: IndexSet) {
-                  for index in offsets {
-                      let item = addItem[index]
-                      self.moc.delete(item)
-                  }
-                  do {
-                      try self.moc.save()
-                  } catch {
-          //            print(error.localizedDescription)
-                  }
-              }
+    func removeItem(at offsets: IndexSet) {
+        for index in offsets {
+            let item = addItem[index]
+            self.moc.delete(item)
+        }
+        do {
+            try self.moc.save()
+        } catch {
+            //            print(error.localizedDescription)
+        }
+    }
 }
 
 
