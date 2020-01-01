@@ -9,9 +9,8 @@
 import SwiftUI
 
 struct ItemRow: View {
-     //pass in item object to pull data
+
         var name: String
-//        var date: Date = Date()
         var priority: String = ""
     
         

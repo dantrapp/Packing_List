@@ -26,6 +26,7 @@
 		717CF61723B7DE1D00BF5F8C /* AddPeopleDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717CF61623B7DE1D00BF5F8C /* AddPeopleDisplay.swift */; };
 		717CF61923B7E68600BF5F8C /* AddPeopleRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717CF61823B7E68600BF5F8C /* AddPeopleRow.swift */; };
 		71E6E61823BBED0200709765 /* AddNewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E6E61723BBED0200709765 /* AddNewItem.swift */; };
+		71E6E61C23BC391700709765 /* ItemOneViewTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E6E61B23BC391700709765 /* ItemOneViewTesting.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		717CF61623B7DE1D00BF5F8C /* AddPeopleDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPeopleDisplay.swift; sourceTree = "<group>"; };
 		717CF61823B7E68600BF5F8C /* AddPeopleRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPeopleRow.swift; sourceTree = "<group>"; };
 		71E6E61723BBED0200709765 /* AddNewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewItem.swift; sourceTree = "<group>"; };
+		71E6E61B23BC391700709765 /* ItemOneViewTesting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemOneViewTesting.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 				7140EF2723B435B30009DA79 /* ItemList.swift */,
 				7140EF2923B444630009DA79 /* ItemDetail.swift */,
 				71E6E61723BBED0200709765 /* AddNewItem.swift */,
+				71E6E61B23BC391700709765 /* ItemOneViewTesting.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -211,6 +214,7 @@
 			files = (
 				7140EF0123B2B7B40009DA79 /* DefaultItems.swift in Sources */,
 				717CF61723B7DE1D00BF5F8C /* AddPeopleDisplay.swift in Sources */,
+				71E6E61C23BC391700709765 /* ItemOneViewTesting.swift in Sources */,
 				7140EF2A23B444630009DA79 /* ItemDetail.swift in Sources */,
 				7140EEE223B2B5E50009DA79 /* Packing_List.xcdatamodeld in Sources */,
 				7140EEDD23B2B5E50009DA79 /* AppDelegate.swift in Sources */,
