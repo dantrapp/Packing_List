@@ -18,7 +18,9 @@ struct ItemRow: View {
 
             //command -> embed in hstack
             HStack {
-
+                //item priority
+                Text(priority).font(.system(size: 16)).minimumScaleFactor(0.8).lineLimit(1)
+                               
                 //item name
                 Text(name).font(.system(size: 16)).minimumScaleFactor(0.8).lineLimit(1)
                 
