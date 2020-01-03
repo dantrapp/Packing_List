@@ -15,7 +15,7 @@ struct ItemDetail: View {
     @Environment(\.managedObjectContext) var moc
     
     //fetch and order by itemName ascending
-    @FetchRequest(entity: PackingList.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \PackingList.itemPriority, ascending: false)])
+    @FetchRequest(entity: PackingList.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \PackingList.itemDate, ascending: false)])
     
     var addItem: FetchedResults<PackingList>
     
