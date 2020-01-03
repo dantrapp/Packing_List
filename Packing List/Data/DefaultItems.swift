@@ -13,6 +13,7 @@ import Foundation
 struct Item: Identifiable {
     var id = UUID()
     var name: String
+    var date = Date()
     var categoryName: String
     var gender: String //Male, Female or Unisex
     var adultChild: String //Adult, Child or Both

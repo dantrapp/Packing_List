@@ -10,6 +10,8 @@ import SwiftUI
 
 struct ItemDetail: View {
     //establish connection to moc for core data use and presentation mode for sheet
+    
+   
     @Environment(\.managedObjectContext) var moc
     
     //fetch and order by itemName ascending
@@ -26,6 +28,7 @@ struct ItemDetail: View {
     @State var itemPriority = ""
     @State var itemQuantity = 1
     @State var itemPerson = ""
+    @State var itemDate = Date()
     
     
     var body: some View {
@@ -68,7 +71,7 @@ struct ItemDetail: View {
                         addItem.itemType = self.itemType
                         addItem.itemPriority = self.itemPriority
                         addItem.itemQuantity = Int32(self.itemQuantity)
-                        addItem.itemDate = Date()
+                        addItem.itemDate = self.itemDate
                         
                         
                         
@@ -90,7 +93,7 @@ struct ItemDetail: View {
                 
                 //Text("Print List")
                 ForEach(addItem, id: \.self) { currentItem in
-                    ItemRow(name: currentItem.itemName ?? "Empty!", priority: currentItem.itemPriority ?? "Empty!", quantity: Int(currentItem.itemQuantity))
+                    ItemRow(name: currentItem.itemName ?? "Empty!", priority: currentItem.itemPriority ?? "Empty!", quantity: Int(currentItem.itemQuantity), date: currentItem.itemDate ?? Date())
                     
                 }
                 .onDelete(perform: removeItem)
