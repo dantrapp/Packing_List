@@ -10,8 +10,6 @@ import SwiftUI
 
 struct ItemList: View {
     
-//    let sections = Dictionary(grouping: sortedNames) { $0.categoryName }
-    
     var body: some View {
          NavigationView {
                 List {

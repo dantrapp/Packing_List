@@ -78,6 +78,8 @@ struct AddPeople: View {
                     
                 }
                 
+//                NavigationLink(destination: AddPeopleDisplay()){
+//
                 Button(("save")) {
                     let addPeople = PackingList(context: self.moc)
                     addPeople.firstName = self.firstName
@@ -94,14 +96,14 @@ struct AddPeople: View {
                 .disabled(firstName.isEmpty || chooseGender.isEmpty || adultOrChild.isEmpty)
                 
                 
-                
+                }
                 
                 
             }
             
         }
     }
-}
+//}
 struct AddPeople_Previews: PreviewProvider {
     static var previews: some View {
         AddPeople()

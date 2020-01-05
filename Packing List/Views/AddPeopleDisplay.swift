@@ -42,6 +42,8 @@ struct AddPeopleDisplay: View {
                 
             .navigationBarTitle("People Added")
             .navigationBarItems(trailing:
+                
+            
                 Button(action: {
                     self.showingAddPeopleScreen.toggle()
                 }) {
