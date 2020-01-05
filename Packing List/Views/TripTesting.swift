@@ -14,7 +14,7 @@ struct TripTesting: View {
 
     
     //fetch and order by itemName ascending
-    @FetchRequest(entity: PackingList.entity(), sortDescriptors: [NSSortDescriptor(key: "tripID", ascending: false)])
+    @FetchRequest(entity: PackingList.entity(), sortDescriptors: [NSSortDescriptor(key: "departureDate", ascending: true)])
     
     var fetchTrip: FetchedResults<PackingList>
     
@@ -35,12 +35,28 @@ struct TripTesting: View {
                 ForEach(fetchTrip, id: \.self) { currentTrip in
                     TripRow(destination: currentTrip.destination ?? "Empty!", departing: currentTrip.departureDate ?? Date(), returning: currentTrip.returnDate ?? Date())
                  
-                }
+                }.onDelete(perform: removeTrips)
             } 
         .navigationBarTitle("Current Trips")
         }
     }
+    
+    //remove trips from core data
+        func removeTrips(at offsets: IndexSet) {
+            for index in offsets {
+                let trips = fetchTrip[index]
+                self.moc.delete(trips)
+            }
+            do {
+                try self.moc.save()
+            } catch {
+    //            print(error.localizedDescription)
+            }
+        }
+    
 }
+
+
 
 #if DEBUG
 struct TripTesting_Previews: PreviewProvider {

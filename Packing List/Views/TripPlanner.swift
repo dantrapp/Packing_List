@@ -13,7 +13,7 @@ struct TripPlanner: View {
     
     //OPEN CORE DATA
     @Environment(\.managedObjectContext) var moc
-
+    
     
     //CAPTURE FOR CORE DATA
     
@@ -83,43 +83,62 @@ struct TripPlanner: View {
                     VStack{
                         HStack{
                             Spacer() //center button
-//                            NavigationLink(destination: TripTesting()){
-                                Button(("Continue ✅")) {
-                                    let addTrip = PackingList(context: self.moc)
-                                    
-                                    addTrip.tripID = UUID()
-                                    
-                                    addTrip.destination = self.destination
-                                    
-                                    addTrip.departureDate = self.departureDate
-                                    
-                                    addTrip.returnDate = self.returnDate
-                                    
-                                    addTrip.numberOfPeople = Int32(self.numberOfPeople)
-                                    
-                                    //save the data
-                                    try? self.moc.save()
-                                }
-                                .frame(width: 250,height:50).background(Color.blue) .foregroundColor(Color.white)
+                            //                            NavigationLink(destination: TripTesting()){
+                            Button(("Save Trip ✅")) {
+                                let addTrip = PackingList(context: self.moc)
                                 
-                                Spacer() //center button
+                                addTrip.tripID = UUID()
                                 
-//                            }
+                                addTrip.destination = self.destination
+                                
+                                addTrip.departureDate = self.departureDate
+                                
+                                addTrip.returnDate = self.returnDate
+                                
+                                addTrip.numberOfPeople = Int32(self.numberOfPeople)
+                                
+                                //save the data
+                                try? self.moc.save()
+                            }
+                            .disabled(destination.isEmpty)
+                            .frame(width: 250,height:50).background(Color.blue) .foregroundColor(Color.white)
+                            
+                            Spacer() //center button
+                            
+                            
+                            
+                            //                            }
                             
                         }
+                        //Set Stack Color
                     }.background(Color.blue).frame(height: 50)
-                    
+
+                Section{
+                    VStack{
+                        //if button pressed; continue
+                        
+                        HStack{
+                            Spacer()
+                            NavigationLink(destination: TripTesting()){
+                               
+                                Text("Continue")
+                                Image(systemName: "arrowshape.turn.up.right.circle.fill")
+                                Spacer()
+                            }
+                            .frame(width: 250,height:50).background(Color.blue) .foregroundColor(Color.white)
+
+                        }
+
+                        
+                    }//Set Stack Color
+                        .background(Color.blue).frame(height: 50)
                 }
-                
-                
-                
-                
             }
             .navigationBarTitle("Trip Planner")
         }
     }
 }
-
+}
 //struct DepartureDate: View {
 //    @State var departureDate = Date()
 //    var body: some View {
