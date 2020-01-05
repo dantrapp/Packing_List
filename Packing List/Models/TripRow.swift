@@ -11,6 +11,7 @@ import SwiftUI
 struct TripRow: View {
     
     var destination : String = ""
+    var transportation : String = ""
     var departing : Date = Date()
     var returning : Date = Date()
     //    var peopleGoing : Int32
@@ -26,7 +27,6 @@ struct TripRow: View {
     var body: some View {
         //command -> embed in hstack
         VStack(alignment: .leading){
-            HStack {
                 Spacer()
                 //destination
                 Text("Destination: \(destination)").font(.system(. caption)).minimumScaleFactor(0.8).lineLimit(1)
@@ -36,15 +36,14 @@ struct TripRow: View {
                 
                 //return date
                 Text("Returning: \(returning, formatter: self.dateFormatter)").font(.system(. caption)).minimumScaleFactor(0.8).lineLimit(1)
+                //transportation type
+                Text("Transportation: \(transportation)").font(.system(. caption)).minimumScaleFactor(0.8).lineLimit(1)
                 
                 //                //number of people going
                 //                Text("(\(Int32(peopleGoing)))").font(.system(size: 20)).minimumScaleFactor(0.8).lineLimit(1)
                 Spacer()
             }
-
-            
-            
-        }
+ 
     }
 }
 

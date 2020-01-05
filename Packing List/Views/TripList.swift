@@ -9,21 +9,64 @@
 import SwiftUI
 
 struct TripList: View {
+    
+    @Environment(\.managedObjectContext) var moc
+
+    
+    //fetch and order by itemName ascending
+    @FetchRequest(entity: PackingList.entity(), sortDescriptors: [NSSortDescriptor(key: "departureDate", ascending: true)])
+    
+    var fetchTrip: FetchedResults<PackingList>
+    
+      //TRAVEL DATES
+      @State var departureDate = Date()
+      @State var returnDate = Date()
+      
+      //DESTINATION
+      @State var destination = ""
+      
+      
+      //PEOPLE GOING
+      @State var numberOfPeople = 0
+    
+    //TRANSPORTATION TYPE
+    @State var transportationType = ""
+
     var body: some View {
-        Text("""
-
-*** This is the main view for all users that have added a trip ***
-
-List all upcoming trips in clickable image List format. 1 Image = Fullscreen. 2 Images = 50% each, 3 images = 33.3% - this way.
-
-Split into List Sections so there's a tiny break between images.
-
-""")
+        NavigationView {
+            List {
+                ForEach(fetchTrip, id: \.self) { currentTrip in
+                    TripRow(destination: currentTrip.destination ?? "Empty!", transportation: currentTrip.transportationType ?? "Empty!", departing: currentTrip.departureDate ?? Date(), returning: currentTrip.returnDate ?? Date())
+                 
+                    }.onDelete(perform: removeTrips)
+                    
+            }
+        .navigationBarTitle("Current Trips")
+        }
     }
+    
+    //remove trips from core data
+        func removeTrips(at offsets: IndexSet) {
+            for index in offsets {
+                let trips = fetchTrip[index]
+                self.moc.delete(trips)
+            }
+            do {
+                try self.moc.save()
+            } catch {
+    //            print(error.localizedDescription)
+            }
+        }
+    
 }
 
+
+
+#if DEBUG
 struct TripList_Previews: PreviewProvider {
     static var previews: some View {
-        TripList()
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        return TripList().environment(\.managedObjectContext, context)
     }
 }
+#endif

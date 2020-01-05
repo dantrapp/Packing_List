@@ -33,7 +33,9 @@ struct TripPlanner: View {
     @State var currentDate = Date()
     @State var untilTrip = 0
     
-    
+    //TRANSPORTATION TYPE
+    @State var transportation : String = ""
+    let transportationType = ["Airplane ✈️", "Car 🚗", "Train 🚆", "Bus 🚌", "Cruise 🛳"]
     
     //date formatter i.e. December 21, 2019
     
@@ -78,6 +80,15 @@ struct TripPlanner: View {
                     }
                     
                 }
+                Section{
+                    Picker("Select Type Of Transportation", selection: $transportation){
+                        ForEach(transportationType, id: \.self) {
+                            Text($0)
+                        }
+                        
+                    }
+                    
+                }
                 
                 Section {
                     VStack{
@@ -94,6 +105,7 @@ struct TripPlanner: View {
                                 addTrip.departureDate = self.departureDate
                                 
                                 addTrip.returnDate = self.returnDate
+                                addTrip.transportationType = self.transportation
                                 
                                 addTrip.numberOfPeople = Int32(self.numberOfPeople)
                                 
@@ -112,32 +124,32 @@ struct TripPlanner: View {
                         }
                         //Set Stack Color
                     }.background(Color.blue).frame(height: 50)
-
-                Section{
-                    VStack{
-                        //if button pressed; continue
-                        
-                        HStack{
-                            Spacer()
-                            NavigationLink(destination: TripTesting()){
-                               
-                                Text("Continue")
-                                Image(systemName: "arrowshape.turn.up.right.circle.fill")
+                    
+                    Section{
+                        VStack{
+                            //if button pressed; continue
+                            
+                            HStack{
                                 Spacer()
+                                NavigationLink(destination: TripList()){
+                                    
+                                    Text("Continue")
+                                    Image(systemName: "arrowshape.turn.up.right.circle.fill")
+                                    Spacer()
+                                }
+                                .frame(width: 250,height:50).background(Color.blue) .foregroundColor(Color.white)
+                                
                             }
-                            .frame(width: 250,height:50).background(Color.blue) .foregroundColor(Color.white)
-
-                        }
-
-                        
-                    }//Set Stack Color
-                        .background(Color.blue).frame(height: 50)
+                            
+                            
+                        }//Set Stack Color
+                            .background(Color.blue).frame(height: 50)
+                    }
                 }
+                .navigationBarTitle("Trip Planner")
             }
-            .navigationBarTitle("Trip Planner")
         }
     }
-}
 }
 //struct DepartureDate: View {
 //    @State var departureDate = Date()
