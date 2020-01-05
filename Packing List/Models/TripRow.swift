@@ -10,9 +10,9 @@ import SwiftUI
 
 struct TripRow: View {
     
-    var destination: String = ""
-    var departing: Date = Date()
-    var returning: Date = Date()
+    var destination : String = ""
+    var departing : Date = Date()
+    var returning : Date = Date()
     //    var peopleGoing : Int32
     
     //date formatter i.e. December 31, 2019

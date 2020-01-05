@@ -13,6 +13,7 @@ struct TripPlanner: View {
     
     //OPEN CORE DATA
     @Environment(\.managedObjectContext) var moc
+
     
     //CAPTURE FOR CORE DATA
     
@@ -57,18 +58,20 @@ struct TripPlanner: View {
                 
                 //travel dates
                 Section(header: Text("Select Travel Dates")){
-                    DepartureDate()
+                    DatePicker("Please Select Your Travel Dates", selection: $departureDate,in: Date()...,  displayedComponents: .date)
+                        .labelsHidden()
                     
                 }
                 
                 Section(header: Text("Choose Your Return Date")) {
-                    ReturnDate()
+                    DatePicker("Please Select Your Travel Dates", selection: $returnDate,in: Date()...,  displayedComponents: .date)
+                        .labelsHidden()
                     
                 }
                 
                 Section{
                     Picker("Number of people going", selection: $numberOfPeople){
-                        ForEach(0..<20){
+                        ForEach(1..<20){
                             Text("\($0) People")
                         }
                         
@@ -80,12 +83,18 @@ struct TripPlanner: View {
                     VStack{
                         HStack{
                             Spacer() //center button
-                            NavigationLink(destination: TripTesting()){
+//                            NavigationLink(destination: TripTesting()){
                                 Button(("Continue ✅")) {
                                     let addTrip = PackingList(context: self.moc)
+                                    
+                                    addTrip.tripID = UUID()
+                                    
                                     addTrip.destination = self.destination
+                                    
                                     addTrip.departureDate = self.departureDate
+                                    
                                     addTrip.returnDate = self.returnDate
+                                    
                                     addTrip.numberOfPeople = Int32(self.numberOfPeople)
                                     
                                     //save the data
@@ -95,40 +104,9 @@ struct TripPlanner: View {
                                 
                                 Spacer() //center button
                                 
-                            }
+//                            }
                             
                         }
-                        
-                        
-                        
-                        //                        //2 button options, add people & skip
-                        //                        if numberOfPeople > 1 {
-                        //                            HStack{
-                        //                                NavigationLink(destination: AddPeople()) {
-                        //                                    Spacer()
-                        //                                    Text("Add Details For \(numberOfPeople) People").frame(width: 250, height:50).background(Color.blue).foregroundColor(Color.white)
-                        //                                    Spacer()
-                        //                                }
-                        //                            }
-                        //                            HStack{
-                        //                                //Continue Button
-                        //                                NavigationLink(destination: TripDetail()) {
-                        //                                    Spacer()
-                        //                                    Text("Skip & Continue").background(Color.blue).foregroundColor(Color.white).frame(width: 250, height: 50)
-                        //
-                        //                                    Spacer()
-                        //                                }
-                        //                            }
-                        //
-                        //                        } else {
-                        //                            NavigationLink(destination: TripDetail()) {
-                        //                                Spacer()
-                        //                                Text("Continue").background(Color.blue).foregroundColor(Color.white).frame(height: 50)
-                        //                                Spacer()
-                        //
-                        //                            }
-                        //                        }
-                        
                     }.background(Color.blue).frame(height: 50)
                     
                 }
@@ -142,23 +120,24 @@ struct TripPlanner: View {
     }
 }
 
-struct DepartureDate: View {
-    @State var departureDate = Date()
-    var body: some View {
-        DatePicker("Please Select Your Travel Dates", selection: $departureDate,in: Date()...,  displayedComponents: .date)
-            .labelsHidden()
-    }
-}
+//struct DepartureDate: View {
+//    @State var departureDate = Date()
+//    var body: some View {
+//        DatePicker("Please Select Your Travel Dates", selection: $departureDate,in: Date()...,  displayedComponents: .date)
+//            .labelsHidden()
+//    }
+//}
 
 
 
-struct ReturnDate: View {
-    @State var returnDate = Date()
-    var body: some View {
-        DatePicker("Please Select Your Travel Dates", selection: $returnDate,in: Date()...,  displayedComponents: .date)
-            .labelsHidden()
-    }
-}
+//struct ReturnDate: View {
+//    @State var returnDate = Date()
+//    var body: some View {
+//        DatePicker("Please Select Your Travel Dates", selection: $returnDate,in: Date()...,  displayedComponents: .date)
+//            .labelsHidden()
+//    }
+//}
+
 
 
 
@@ -167,5 +146,6 @@ struct TripPlanner_Previews: PreviewProvider {
         TripPlanner()
     }
 }
+
 
 
