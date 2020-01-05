@@ -36,6 +36,10 @@ struct TripPlanner: View {
     @State var transportation : String = ""
     let transportationType = ["Airplane ✈️", "Car 🚗", "Train 🚆", "Bus 🚌", "Cruise 🛳"]
     
+    //TRAVEL TYPE
+    @State var typeOfTravel : String = ""
+    let travelType = ["Business 📊", "Personal 🏝"]
+    
     //date formatter i.e. December 21, 2019
     
     var dateFormatter: DateFormatter {
@@ -71,7 +75,7 @@ struct TripPlanner: View {
                 }
                 
                 Section{
-                    Picker("Number of people going", selection: $numberOfPeople){
+                    Picker("Select The Number Of People Going", selection: $numberOfPeople){
                         ForEach(1..<20){
                             Text("\($0) People")
                         }
@@ -79,13 +83,24 @@ struct TripPlanner: View {
                     }
                     
                 }
-                Section{
+                Section(header: Text("Select Type Of Transportation")){
                     Picker("Select Type Of Transportation", selection: $transportation){
                         ForEach(transportationType, id: \.self) {
                             Text($0)
                         }
                         
                     }
+                    .pickerStyle(SegmentedPickerStyle())
+                    
+                }
+                Section(header: Text("Select Reason For Travel")){
+                    Picker("Select Reason For Travel", selection: $typeOfTravel){
+                        ForEach(travelType, id: \.self) {
+                            Text($0)
+                        }
+                        
+                    }
+                    .pickerStyle(SegmentedPickerStyle())
                     
                 }
                 
@@ -105,6 +120,8 @@ struct TripPlanner: View {
                                 
                                 addTrip.returnDate = self.returnDate
                                 addTrip.transportationType = self.transportation
+                                
+                                addTrip.travelType = self.typeOfTravel
                                 
                                 addTrip.numberOfPeople = Int32(self.numberOfPeople)
                                 
@@ -150,7 +167,7 @@ struct TripPlanner: View {
         }
     }
 }
-    //TESTING DEVELOP MERGE
+//TESTING DEVELOP MERGE
 
 
 

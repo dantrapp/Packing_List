@@ -19,9 +19,10 @@
         <attribute name="peopleID" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="returnDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="transportationType" optional="YES" attributeType="String"/>
+        <attribute name="travelType" optional="YES" attributeType="String"/>
         <attribute name="tripID" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
     </entity>
     <elements>
-        <element name="PackingList" positionX="-54" positionY="-9" width="128" height="328"/>
+        <element name="PackingList" positionX="-54" positionY="-9" width="128" height="343"/>
     </elements>
 </model>

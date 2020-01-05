@@ -36,7 +36,7 @@ struct TripList: View {
         NavigationView {
             List {
                 ForEach(fetchTrip, id: \.self) { currentTrip in
-                    TripRow(destination: currentTrip.destination ?? "Empty!", transportation: currentTrip.transportationType ?? "Empty!", departing: currentTrip.departureDate ?? Date(), returning: currentTrip.returnDate ?? Date())
+                    TripRow(destination: currentTrip.destination ?? "Empty!", transportation: currentTrip.transportationType ?? "Empty!",typeOfTravel: currentTrip.travelType ?? "Empty!", departing: currentTrip.departureDate ?? Date(), returning: currentTrip.returnDate ?? Date())
                  
                     }.onDelete(perform: removeTrips)
                     
