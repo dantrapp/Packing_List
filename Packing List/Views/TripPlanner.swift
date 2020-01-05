@@ -10,7 +10,6 @@ import SwiftUI
 
 struct TripPlanner: View {
     
-    
     //OPEN CORE DATA
     @Environment(\.managedObjectContext) var moc
     
@@ -151,23 +150,7 @@ struct TripPlanner: View {
         }
     }
 }
-//struct DepartureDate: View {
-//    @State var departureDate = Date()
-//    var body: some View {
-//        DatePicker("Please Select Your Travel Dates", selection: $departureDate,in: Date()...,  displayedComponents: .date)
-//            .labelsHidden()
-//    }
-//}
-
-
-
-//struct ReturnDate: View {
-//    @State var returnDate = Date()
-//    var body: some View {
-//        DatePicker("Please Select Your Travel Dates", selection: $returnDate,in: Date()...,  displayedComponents: .date)
-//            .labelsHidden()
-//    }
-//}
+    //TESTING DEVELOP MERGE
 
 
 
