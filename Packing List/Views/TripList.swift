@@ -41,7 +41,7 @@ struct TripList: View {
                     }.onDelete(perform: removeTrips)
                     
             }
-        .navigationBarTitle("Current Trips")
+        .navigationBarTitle("Upcoming Trips")
         }
     }
     
