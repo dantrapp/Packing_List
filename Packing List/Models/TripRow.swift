@@ -27,10 +27,11 @@ struct TripRow: View {
     
     var body: some View {
         //command -> embed in hstack
+        HStack{
         VStack(alignment: .leading){
             Spacer()
             //destination
-            Text("Destination: \(destination)").font(.system(. caption)).minimumScaleFactor(0.8).lineLimit(1).padding(5)
+            Text("\(destination)").font(.system(. largeTitle)).minimumScaleFactor(0.8).lineLimit(1).padding(5)
             
             //departure date
             Text("Departing: \(departing, formatter: self.dateFormatter)").font(.system(. caption)).minimumScaleFactor(0.8).lineLimit(1).padding(5)
@@ -46,6 +47,10 @@ struct TripRow: View {
             //                Text("(\(Int32(peopleGoing)))").font(.system(size: 20)).minimumScaleFactor(0.8).lineLimit(1)
             Spacer()
         }.padding()
+            
+            //ADD IMAGE TO ROW
+            Image("goldenGate").resizable().aspectRatio(contentMode: .fill).blur(radius: 0.4).opacity(0.7).frame(width: 150, height: 60)
+        }
         
     }
 }
@@ -54,6 +59,6 @@ struct TripRow: View {
 
 struct TripRow_Previews: PreviewProvider {
     static var previews: some View {
-        TripRow(destination: "Fiji")
+        TripRow(destination: "San Francisco")
     }
 }
