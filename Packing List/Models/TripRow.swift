@@ -31,7 +31,7 @@ struct TripRow: View {
         VStack(alignment: .leading){
             Spacer()
             //destination
-            Text("\(destination)").font(.system(. largeTitle)).minimumScaleFactor(0.8).lineLimit(1).padding(5)
+            Text("\(destination)").font(.system( size: 24)).minimumScaleFactor(0.8).lineLimit(1).padding(5)
             
             //departure date
             Text("Departing: \(departing, formatter: self.dateFormatter)").font(.system(. caption)).minimumScaleFactor(0.8).lineLimit(1).padding(5)
@@ -46,10 +46,10 @@ struct TripRow: View {
             //                //number of people going
             //                Text("(\(Int32(peopleGoing)))").font(.system(size: 20)).minimumScaleFactor(0.8).lineLimit(1)
             Spacer()
-        }.padding()
-            
+        }.padding(25)
+             Spacer()
             //ADD IMAGE TO ROW
-            Image("goldenGate").resizable().aspectRatio(contentMode: .fill).blur(radius: 0.4).opacity(0.7).frame(width: 150, height: 60)
+            Image("goldenGate").resizable().aspectRatio(contentMode: .fill).blur(radius: 0.4).opacity(0.7).frame(width: 150, height: 60).padding(10)
         }
         
     }
@@ -59,6 +59,6 @@ struct TripRow: View {
 
 struct TripRow_Previews: PreviewProvider {
     static var previews: some View {
-        TripRow(destination: "San Francisco")
+        TripRow(destination: "Llanfairpwllgwyngyll")
     }
 }
