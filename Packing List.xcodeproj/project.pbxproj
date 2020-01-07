@@ -27,6 +27,8 @@
 		717CF61723B7DE1D00BF5F8C /* AddPeopleDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717CF61623B7DE1D00BF5F8C /* AddPeopleDisplay.swift */; };
 		717CF61923B7E68600BF5F8C /* AddPeopleRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717CF61823B7E68600BF5F8C /* AddPeopleRow.swift */; };
 		71E6E61C23BC391700709765 /* ItemDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E6E61B23BC391700709765 /* ItemDetail.swift */; };
+		71F0364023C3E0AE003718C2 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F0363F23C3E0AE003718C2 /* MapView.swift */; };
+		71F0364223C3E1D1003718C2 /* MapTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F0364123C3E1D1003718C2 /* MapTesting.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +54,8 @@
 		717CF61623B7DE1D00BF5F8C /* AddPeopleDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPeopleDisplay.swift; sourceTree = "<group>"; };
 		717CF61823B7E68600BF5F8C /* AddPeopleRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPeopleRow.swift; sourceTree = "<group>"; };
 		71E6E61B23BC391700709765 /* ItemDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetail.swift; sourceTree = "<group>"; };
+		71F0363F23C3E0AE003718C2 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		71F0364123C3E1D1003718C2 /* MapTesting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapTesting.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +90,7 @@
 			children = (
 				7140EEF723B2B6930009DA79 /* Views */,
 				7140EEF923B2B6F60009DA79 /* Models */,
+				71F0363E23C3E088003718C2 /* Map */,
 				7140EEF823B2B6AB0009DA79 /* Data */,
 				7140EEDC23B2B5E50009DA79 /* AppDelegate.swift */,
 				7140EEDE23B2B5E50009DA79 /* SceneDelegate.swift */,
@@ -139,6 +144,15 @@
 				716EE69523C172670033C5DC /* TripModel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		71F0363E23C3E088003718C2 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				71F0363F23C3E0AE003718C2 /* MapView.swift */,
+				71F0364123C3E1D1003718C2 /* MapTesting.swift */,
+			);
+			path = Map;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -219,6 +233,7 @@
 				7140EEE223B2B5E50009DA79 /* Packing_List.xcdatamodeld in Sources */,
 				7140EEDD23B2B5E50009DA79 /* AppDelegate.swift in Sources */,
 				7140EEF623B2B66D0009DA79 /* AddPeople.swift in Sources */,
+				71F0364023C3E0AE003718C2 /* MapView.swift in Sources */,
 				7140EEE423B2B5E60009DA79 /* TripDetail.swift in Sources */,
 				716EE69223C0413C0033C5DC /* TripRow.swift in Sources */,
 				716EF0F823BA94E8008384F3 /* ItemListTesting.swift in Sources */,
@@ -226,6 +241,7 @@
 				7140EEFB23B2B7390009DA79 /* ItemRow.swift in Sources */,
 				7140EF2C23B46A0E0009DA79 /* TripList.swift in Sources */,
 				717CF61923B7E68600BF5F8C /* AddPeopleRow.swift in Sources */,
+				71F0364223C3E1D1003718C2 /* MapTesting.swift in Sources */,
 				7140EEDF23B2B5E50009DA79 /* SceneDelegate.swift in Sources */,
 				7140EF2823B435B30009DA79 /* ItemList.swift in Sources */,
 				7140EEFD23B2B7480009DA79 /* ListCategories.swift in Sources */,
