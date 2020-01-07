@@ -18,10 +18,16 @@ struct MapView: UIViewRepresentable {
         init(_ parent: MapView) {
             self.parent = parent
         }
-    }
-    
-    func mapViewDidChangeVisibleRegion(_ mapView: MKMapView) {
-        print(mapView.centerCoordinate)
+        //get coordinates
+        func mapViewDidChangeVisibleRegion(_ mapView: MKMapView) {
+            print(mapView.centerCoordinate)
+        }
+        //modify the annotation
+        func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation)-> MKAnnotationView? {
+            let view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: nil)
+            view.canShowCallout = true
+            return view
+        }
     }
     
     func makeCoordinator() -> Coordinator {
@@ -34,7 +40,7 @@ struct MapView: UIViewRepresentable {
             //add mapView delegate
             mapView.delegate = context.coordinator
             
-            //add annotation
+            //add annotation for cuty
             let annotation = MKPointAnnotation()
             annotation.title = "London"
             annotation.subtitle = "Capital Of England"
