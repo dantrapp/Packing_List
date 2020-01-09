@@ -13,13 +13,15 @@ import SwiftUI
 
 struct TripDetail: View {
     
-
+    
     
     @State var categories = ["Clothing", "Important Documents", "Toiletries", "Health", "Essentials", "Electronics", "Accessories"]
     
     var body: some View {
         
+
         VStack {
+            
             ZStack {
                 //add text overlay for Destination + Travel Dates
                 
@@ -27,7 +29,7 @@ struct TripDetail: View {
                 
                 //grab image based on tripID
                 Image( "fijiHut").resizable().aspectRatio(contentMode: .fill).blur(radius: 0.4).opacity(0.7).frame(height: 200)
-       
+                
                 
             }.edgesIgnoringSafeArea(.all)
             
@@ -36,26 +38,30 @@ struct TripDetail: View {
             //If people going..
             VStack {
                 Text("People Going")
-            
-            HStack {
-                Spacer()
-                Image(systemName: "person")
-                Text("Jessica | Edit")
-                Spacer()
-            }
                 
-               
+                HStack {
+                    Spacer()
+                    Image(systemName: "person")
+                    Text("Jessica | Edit")
+                    Spacer()
+                }
                 
-  
+             
+                
+     
             }
             
             
             Spacer()
+            
+            
         }
         
-        }
+        
         
     }
+    
+}
 
 
 
