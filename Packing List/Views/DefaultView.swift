@@ -24,11 +24,11 @@ struct DefaultView: View {
                     Image(systemName:(selected == 2 ? "calendar.circle.fill" : "calendar.circle"))
                     Text("Upcoming Trips")
             }
-            AddPeople()
-                .tabItem {
-                    Image(systemName:(selected == 3 ? "person.badge.plus.fill" : "person.badge.plus"))
-                    Text("Add People")
-            }
+//            AddPeople()
+//                .tabItem {
+//                    Image(systemName:(selected == 3 ? "person.badge.plus.fill" : "person.badge.plus"))
+//                    Text("Add People")
+//            }
             
         }
     }

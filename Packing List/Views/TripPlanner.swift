@@ -26,7 +26,7 @@ struct TripPlanner: View {
     
     
     //PEOPLE GOING
-    @State var numberOfPeople = 0
+    @State var numberOfPeople = 1
     
     //TRAVEL DURATION
     @State var currentDate = Date()
@@ -47,6 +47,9 @@ struct TripPlanner: View {
         formatter.dateStyle = .long
         return formatter
     }
+    
+    //Save button info
+    @State var isPressed = false
     
     
     
@@ -76,7 +79,7 @@ struct TripPlanner: View {
                 
                 Section{
                     Picker("Select The Number Of People Going", selection: $numberOfPeople){
-                        ForEach(1..<20){
+                        ForEach(0..<20){
                             Text("\($0) People")
                         }
                         
@@ -104,72 +107,56 @@ struct TripPlanner: View {
                     
                 }
                 
-                Section {
-                    VStack{
-                        HStack{
-                            Spacer() //center button
-                            //                            NavigationLink(destination: TripTesting()){
-                            Button(("Save Trip ✅")) {
-                                let addTrip = PackingList(context: self.moc)
-                                
-                                addTrip.tripID = UUID()
-                                
-                                addTrip.destination = self.destination
-                                
-                                addTrip.departureDate = self.departureDate
-                                
-                                addTrip.returnDate = self.returnDate
-                                addTrip.transportationType = self.transportation
-                                
-                                addTrip.travelType = self.typeOfTravel
-                                
-                                addTrip.numberOfPeople = Int32(self.numberOfPeople)
-                                
-                                //save the data
-                                try? self.moc.save()
-                            }
-                            .disabled(destination.isEmpty)
-                            .frame(width: 250,height:50).background(Color.blue) .foregroundColor(Color.white)
-                            
-                            Spacer() //center button
-                            
-                            
-                            
-                            //                            }
-                            
-                        }
-                        //Set Stack Color
-                    }.background(Color.blue).frame(height: 50)
-                    
-                    Section{
-                        VStack{
-                            //if button pressed; continue
-                            
-                            HStack{
-                                Spacer()
-                                NavigationLink(destination: TripList()){
-                                    
-                                    Text("Continue")
-                                    Image(systemName: "arrowshape.turn.up.right.circle.fill")
-                                    Spacer()
-                                }
-                                .frame(width: 250,height:50).background(Color.blue) .foregroundColor(Color.white)
-                                
-                            }
-                            
-                            
-                        }//Set Stack Color
-                            .background(Color.blue).frame(height: 50)
+                //ADD BUTTON LOGIC HERE
+                
+                Button(action:
+                    {
+                        self.isPressed.toggle()
+                        let addTrip = PackingList(context: self.moc)
+                        
+                        addTrip.tripID = UUID()
+                        
+                        addTrip.destination = self.destination
+                        
+                        addTrip.departureDate = self.departureDate
+                        
+                        addTrip.returnDate = self.returnDate
+                        addTrip.transportationType = self.transportation
+                        
+                        addTrip.travelType = self.typeOfTravel
+                        
+                        addTrip.numberOfPeople = Int32(self.numberOfPeople)
+                        
+                        //save the data
+                        try? self.moc.save()
+                }) {
+                    HStack{
+                        Spacer()
+                    Text("Save Trip")
+                        Spacer()
                     }
+                    
                 }
-                .navigationBarTitle("Trip Planner")
+                .disabled(destination.isEmpty)
+                
+                if isPressed{
+                    if numberOfPeople <= 1{
+                        ContinueButton()
+                        Text("People Going: \(numberOfPeople)")
+                    } else {
+                    AddPeopleButton()
+                         Text("People Going: \(numberOfPeople)")
+                    }
+                    
+                }
+                
+                
             }
+            
         }
+        .navigationBarTitle("Trip Planner")
     }
 }
-//TESTING DEVELOP MERGE
-
-
 
 
 struct TripPlanner_Previews: PreviewProvider {
@@ -178,5 +165,41 @@ struct TripPlanner_Previews: PreviewProvider {
     }
 }
 
+struct AddPeopleButton: View {
+    var body: some View {
+        VStack{
+            HStack{
+                Spacer()
+                NavigationLink(destination: AddPeople()){
+                    
+                    Text("Add People")
+                    Image(systemName: "arrowshape.turn.up.right.circle.fill")
+                    Spacer()
+                }
+                .frame(width: 250,height:50).background(Color.blue) .foregroundColor(Color.white)
+                
+            }
+        }
+        .background(Color.blue).frame(height: 50)
+    }
+}
 
 
+struct ContinueButton: View {
+    var body: some View {
+        VStack{
+            HStack{
+                Spacer()
+                NavigationLink(destination: TripList()){
+                    
+                    Text("Continue")
+                    Image(systemName: "arrowshape.turn.up.right.circle.fill")
+                    Spacer()
+                }
+                .frame(width: 250,height:50).background(Color.blue) .foregroundColor(Color.white)
+                
+            }
+            .background(Color.blue).frame(height: 50)
+        }
+    }
+}
