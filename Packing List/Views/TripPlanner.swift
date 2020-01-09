@@ -152,9 +152,10 @@ struct TripPlanner: View {
                 
                 
             }
+            .navigationBarTitle("Trip Planner")
             
         }
-        .navigationBarTitle("Trip Planner")
+        
     }
 }
 
