@@ -123,7 +123,7 @@ var items : [Item] = [
     //ESSENTIALS
     Item(name: "Cameras", categoryName: "Essentials", gender: "Unisex", adultChild: "Both"),
     Item(name: "Keys", categoryName: "Essentials", gender: "Unisex", adultChild: "Both"),
-    Item(name: "Wallet", categoryName: "Electronics", gender: "Male", adultChild: "Adult"),
+    Item(name: "Wallet", categoryName: "Electronics", gender: "Unisex", adultChild: "Adult"),
     //Health & Medical
     Item(name: "Prescription Medication", categoryName: "Health", gender: "Unisex", adultChild: "Both"),
     Item(name: "Contact Lenses", categoryName: "Health", gender: "Unisex", adultChild: "Both"),
