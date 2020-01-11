@@ -23,6 +23,7 @@ struct AddPeopleDisplay: View {
     @State private var firstName = ""
     @State private var gender = ""
     @State private var adultOrChild = ""
+    @State private var peopleRelationship = ""
     
     
     var body: some View {
@@ -32,7 +33,8 @@ struct AddPeopleDisplay: View {
             List{
                 Section{
                     ForEach(addPeople, id: \.self) { people in
-                        AddPeopleRow(firstName: people.firstName ?? "Empty!", gender: people.gender ?? "Empty!", adultOrChild: people.adultOrChild ?? "Empty!")
+                        AddPeopleRow(firstName: people.firstName ?? "Empty!", gender: people.gender ?? "Empty!", adultOrChild: people.adultOrChild ?? "Empty!",
+                        peopleRelationship: people.peopleRelationship ?? "Empty!")
                     }.onDelete(perform: removePeople)
                     
                 }

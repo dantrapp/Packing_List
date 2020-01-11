@@ -54,6 +54,7 @@ struct AddPeople: View {
     @State var adultOrChild : String = ""
     @State var chooseGender : String = ""
     @State var peopleRelationship : String = ""
+    @State var saveButtonPressed = false
     
     //fetch from core data to see how many people are going on this trip
     @State var numberOfPeople = 0
@@ -69,17 +70,7 @@ struct AddPeople: View {
         
         NavigationView{
             Form{
-                Section{
-                    HStack{
-                        Spacer()
-                        Image(systemName: "person").resizable().frame(width: 25, height: 25)
-                        Text("Add A Person").font(.largeTitle)
-                        Spacer()
-                    }
-                }
-                Section{
-                    
-                    Text("Basic Details")
+                Section(header: Text("First Name")){
                     TextField("Enter First Name", text: $firstName)
                     
                 }
@@ -126,7 +117,7 @@ struct AddPeople: View {
                 
                 HStack{
                     Spacer()
-                Button(("save")) {
+                Button(("SAVE / Add Another Person")) {
                     let addPeople = PackingList(context: self.moc)
                     addPeople.firstName = self.firstName
                     addPeople.gender = self.chooseGender
@@ -136,16 +127,45 @@ struct AddPeople: View {
                     //save the data
                     try? self.moc.save()
                     
-                    //dismiss sheet
-                                       self.presentationMode.wrappedValue.dismiss()
+                    //save button has been pressed
+                    self.saveButtonPressed = true
                     
-                }//error checking form values for empty. If not empty, show save button.
+                    //reset the form fields
+                    self.firstName = ""
+                    self.adultOrChild = ""
+                    self.chooseGender = ""
+                    self.peopleRelationship = ""
+                    
+                }
                 .disabled(firstName.isEmpty || chooseGender.isEmpty || adultOrChild.isEmpty)
                 
                     Spacer()
+
                 
                 }
+                
+                //ifSaved button pressed show Done Button
+
+                if saveButtonPressed{
+                    NavigationLink(destination: AddPeopleDisplay()){
+                            HStack{
+                                Spacer()
+                              Text("I'm Done, Thanks!")
+                            Spacer()
+                          }
+                }
+                }
+          
+                
+                
+                //if addPerson selected, clear fields, else dismiss sheet
+                
+                /* USE THIS
+                 //dismiss sheet
+                                                 self.presentationMode.wrappedValue.dismiss()
+                 */
             }
+        .navigationBarTitle("Add People")
                 
                 
             }

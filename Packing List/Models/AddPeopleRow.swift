@@ -13,16 +13,20 @@ struct AddPeopleRow: View {
     var firstName = ""
     var gender = ""
     var adultOrChild = ""
+    var peopleRelationship = ""
     
     var body: some View {
-        HStack {
-            Text("😀")
-                .foregroundColor(Color.blue)
-            
-            Text(firstName)
-                .font(.custom("Arial", size: 25))
-                .lineLimit(1)
-            VStack{
+        VStack {
+            HStack{
+                Text("😀")
+                    .foregroundColor(Color.blue)
+                
+                Text(firstName)
+                    .font(.custom("Arial", size: 25))
+                    .lineLimit(1)
+                .frame(width: 220, alignment: .leading)
+            }
+            HStack{
             Text("\(adultOrChild)")
                 .font(.custom("Arial", size: 15))
                 .lineLimit(1)
@@ -30,10 +34,14 @@ struct AddPeopleRow: View {
             Text(gender)
                 .font(.custom("Arial", size: 15))
                 .lineLimit(1)
+            Text(peopleRelationship)
+                .font(.custom("Arial", size: 15))
+                .lineLimit(1)
             }
-            
+            .frame(width: 250, alignment: .leading)
             
         }
+        .frame(width: 250, alignment: .leading)
     }
 }
 
