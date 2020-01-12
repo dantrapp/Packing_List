@@ -15,7 +15,8 @@ struct TripRow: View {
     var typeOfTravel : String = ""
     var departing : Date = Date()
     var returning : Date = Date()
-    //    var peopleGoing : Int32
+//    var numberOfPeople : Int32
+//    var peopleID : UUID
     
     //date formatter i.e. December 31, 2019
     

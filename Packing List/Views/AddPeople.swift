@@ -12,23 +12,23 @@ struct AddPeople: View {
     
     /*
      Add People Going On This Trip: London
-         peopleID: UUID
-         firstName: String
-         gender: String
-         adultOrChild: String
-         peopleRelationship : String [mother, father, son, daughter, friend, colleagues.etc]
+     peopleID: UUID
+     firstName: String
+     gender: String
+     adultOrChild: String
+     peopleRelationship : String [mother, father, son, daughter, friend, colleagues.etc]
      
      
-         + Add Another Person
-
+     + Add Another Person
+     
      Each person (object) has their own peopleID and properties and they are grouped into 3 categories.
-
+     
      - Family
      - Friends
      - Colleagues (Work)
-
+     
      This way for future trips each person can be selected quickly to add to a trip.
-
+     
      */
     
     //establish connection to moc for core data use and presentation mode for sheet
@@ -100,78 +100,76 @@ struct AddPeople: View {
                 }
                 
                 //Select Family or Friend?
-                             Section(header: Text("Family Or Friend?: \(peopleRelationship)")){
-                                 
-                                 Picker("Gender", selection: $peopleRelationship){
-                                     ForEach(relationshipArray, id: \.self) {
-                                         Text($0)
-                                     }
-                                     
-                                 }.pickerStyle(SegmentedPickerStyle())
-                                 
-                             }
+                Section(header: Text("Family Or Friend?: \(peopleRelationship)")){
+                    
+                    Picker("Gender", selection: $peopleRelationship){
+                        ForEach(relationshipArray, id: \.self) {
+                            Text($0)
+                        }
+                        
+                    }.pickerStyle(SegmentedPickerStyle())
+                    
+                }
                 
                 
-//                NavigationLink(destination: AddPeopleDisplay()){
-//
+                //                NavigationLink(destination: AddPeopleDisplay()){
+                //
                 
                 HStack{
                     Spacer()
-                Button(("SAVE / Add Another Person")) {
-                    let addPeople = PackingList(context: self.moc)
-                    addPeople.firstName = self.firstName
-                    addPeople.gender = self.chooseGender
-                    addPeople.adultOrChild = self.adultOrChild
+                    Button(("SAVE / Add Another Person")) {
+                        let addPeople = PackingList(context: self.moc)
+                        addPeople.firstName = self.firstName
+                        addPeople.gender = self.chooseGender
+                        addPeople.adultOrChild = self.adultOrChild
                         addPeople.peopleRelationship = self.peopleRelationship
+                        
+                        //save the data
+                        try? self.moc.save()
+                        
+                        //save button has been pressed
+                        self.saveButtonPressed = true
+                        
+                        //reset the form fields
+                        self.firstName = ""
+                        self.adultOrChild = ""
+                        self.chooseGender = ""
+                        self.peopleRelationship = ""
+                        
+                        
+                    }
+                    .disabled(firstName.isEmpty || chooseGender.isEmpty || adultOrChild.isEmpty)
                     
-                    //save the data
-                    try? self.moc.save()
-                    
-                    //save button has been pressed
-                    self.saveButtonPressed = true
-                    
-                    //reset the form fields
-                    self.firstName = ""
-                    self.adultOrChild = ""
-                    self.chooseGender = ""
-                    self.peopleRelationship = ""
-                    
-                }
-                .disabled(firstName.isEmpty || chooseGender.isEmpty || adultOrChild.isEmpty)
-                
                     Spacer()
-
-                
+                    
+                    
                 }
                 
                 //ifSaved button pressed show Done Button
-
+                
                 if saveButtonPressed{
-                    NavigationLink(destination: AddPeopleDisplay()){
-                            HStack{
-                                Spacer()
-                              Text("I'm Done, Thanks!")
+                        HStack{
+                            
                             Spacer()
-                          }
+                            Button("I'm Done, Thanks!"){
+                        self.presentationMode.wrappedValue.dismiss()
+                            }
+                            Spacer()
+                            
+                            
+                        
+                    }
+                    
                 }
-                }
-          
-                
-                
-                //if addPerson selected, clear fields, else dismiss sheet
-                
-                /* USE THIS
-                 //dismiss sheet
-                                                 self.presentationMode.wrappedValue.dismiss()
-                 */
-            }
-        .navigationBarTitle("Add People")
-                
                 
             }
+            .navigationBarTitle("Add People")
+            
             
         }
+        
     }
+}
 //}
 struct AddPeople_Previews: PreviewProvider {
     static var previews: some View {

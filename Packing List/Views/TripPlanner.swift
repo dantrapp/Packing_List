@@ -53,9 +53,10 @@ struct TripPlanner: View {
     
     
     
+    
+    
     var body: some View {
-        
-        
+
         //select number of people
         NavigationView {
             Form {
@@ -107,6 +108,7 @@ struct TripPlanner: View {
                     
                 }
                 
+                
                 //ADD BUTTON LOGIC HERE
                 
                 Button(action:
@@ -129,35 +131,65 @@ struct TripPlanner: View {
                         
                         //save the data
                         try? self.moc.save()
+                        
+                        //reset the form fields
+                        self.destination = ""
+                        self.departureDate = Date()
+                        self.returnDate = Date()
+                        self.transportation = ""
+                        self.typeOfTravel = ""
+                        //                        self.numberOfPeople = Int(Int32(1))
+
+                        
+                        
+                        
                 }) {
+                    
                     HStack{
                         Spacer()
-                    Text("Save Trip")
+                        Text("Save Trip")
                         Spacer()
                     }
                     
-                }
-                .disabled(destination.isEmpty)
-                
-                if isPressed{
-                    if numberOfPeople <= 1{
-                        ContinueButton()
-                        Text("People Going: \(numberOfPeople)")
-                    } else {
-                    AddPeopleButton()
-                         Text("People Going: \(numberOfPeople)")
-                    }
+                    
+                    
+                    
                     
                 }
+                    
+                .disabled(destination.isEmpty)
+                
+                
+                //SAVE BUTTON PRESSED?
+                if isPressed{
+                    if numberOfPeople > 1{
+                        AddPeopleButton()
+                        Text("People Going: \(numberOfPeople)")
+                                   
+                        
+                    } else {
+                        ContinueButton()
+                        Text("People Going: \(numberOfPeople)")
+  
+                    }
+                    
+                    
+                } // end save button pressed
                 
                 
             }
             .navigationBarTitle("Trip Planner")
             
+            
         }
         
+        
     }
+  
 }
+
+
+
 
 
 struct TripPlanner_Previews: PreviewProvider {
@@ -203,4 +235,6 @@ struct ContinueButton: View {
             .background(Color.blue).frame(height: 50)
         }
     }
+    
 }
+
