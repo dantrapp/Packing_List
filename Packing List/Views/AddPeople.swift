@@ -37,27 +37,18 @@ struct AddPeople: View {
     @Environment(\.presentationMode) var presentationMode
     
     //GET PEOPLE
-    @FetchRequest(entity: PackingList.entity(), sortDescriptors: [])
+    @FetchRequest(entity: People.entity(), sortDescriptors: [])
     
-    var fetchPeople: FetchedResults<PackingList>
-    
-    /*
-     'Add People' Core Data Attributes
-     peopleID: UUID
-     firstName: String
-     gender: String
-     adultOrChild: String
-     
-     */
+    var fetchPeople: FetchedResults<People>
     
     @State var firstName : String = ""
     @State var adultOrChild : String = ""
     @State var chooseGender : String = ""
     @State var peopleRelationship : String = ""
-    @State var saveButtonPressed = false
     
-    //fetch from core data to see how many people are going on this trip
-    @State var numberOfPeople = 0
+    
+    //SAVE BUTTON PRESSED
+    @State var saveButtonPressed = false
     
     
     //Add People Arrays
@@ -77,7 +68,6 @@ struct AddPeople: View {
                 
                 //Select Gender: Segmented Picker
                 Section(header: Text("Choose Gender: \(chooseGender)")){
-                    
                     Picker("Gender", selection: $chooseGender){
                         ForEach(genderArray, id: \.self) {
                             Text($0)
@@ -101,7 +91,6 @@ struct AddPeople: View {
                 
                 //Select Family or Friend?
                 Section(header: Text("Family Or Friend?: \(peopleRelationship)")){
-                    
                     Picker("Gender", selection: $peopleRelationship){
                         ForEach(relationshipArray, id: \.self) {
                             Text($0)
@@ -112,29 +101,20 @@ struct AddPeople: View {
                 }
                 
                 
-                //                NavigationLink(destination: AddPeopleDisplay()){
-                //
-                
                 HStack{
                     Spacer()
-                    Button(("SAVE / Add Another Person")) {
-                        let addPeople = PackingList(context: self.moc)
+                    Button("SAVE / Add Another Person") {
+                        let addPeople = People(context: self.moc)
                         addPeople.firstName = self.firstName
                         addPeople.gender = self.chooseGender
                         addPeople.adultOrChild = self.adultOrChild
                         addPeople.peopleRelationship = self.peopleRelationship
                         
-                        //save the data
-                        try? self.moc.save()
-                        
                         //save button has been pressed
                         self.saveButtonPressed = true
                         
-                        //reset the form fields
-                        self.firstName = ""
-                        self.adultOrChild = ""
-                        self.chooseGender = ""
-                        self.peopleRelationship = ""
+                        //save the data
+                        try? self.moc.save()
                         
                         
                     }
@@ -152,7 +132,14 @@ struct AddPeople: View {
                             
                             Spacer()
                             Button("I'm Done, Thanks!"){
+                                //reset the form fields
+                                self.firstName = ""
+                                self.adultOrChild = ""
+                                self.chooseGender = ""
+                                self.peopleRelationship = ""
+                                
                         self.presentationMode.wrappedValue.dismiss()
+                                
                             }
                             Spacer()
                             

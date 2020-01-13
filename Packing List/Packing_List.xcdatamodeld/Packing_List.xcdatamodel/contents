@@ -23,7 +23,16 @@
         <attribute name="travelType" optional="YES" attributeType="String"/>
         <attribute name="tripID" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
     </entity>
+    <entity name="People" representedClassName="People" syncable="YES" codeGenerationType="class">
+        <attribute name="adultOrChild" optional="YES" attributeType="String"/>
+        <attribute name="firstName" optional="YES" attributeType="String"/>
+        <attribute name="gender" optional="YES" attributeType="String"/>
+        <attribute name="numberOfPeople" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="peopleID" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="peopleRelationship" optional="YES" attributeType="String"/>
+    </entity>
     <elements>
         <element name="PackingList" positionX="-54" positionY="-9" width="128" height="358"/>
+        <element name="People" positionX="-54" positionY="144" width="128" height="133"/>
     </elements>
 </model>

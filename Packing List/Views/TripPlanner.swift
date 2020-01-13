@@ -50,11 +50,7 @@ struct TripPlanner: View {
     
     //Save button info
     @State var isPressed = false
-    
-    
-    
-    
-    
+
     var body: some View {
 
         //select number of people
