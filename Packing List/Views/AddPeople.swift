@@ -123,6 +123,7 @@ struct AddPeople: View {
                         addPeople.gender = self.chooseGender
                         addPeople.adultOrChild = self.adultOrChild
                         addPeople.peopleRelationship = self.peopleRelationship
+                        addPeople.tripIDString = self.getTripID
                         
                         //save button has been pressed
                         self.saveButtonPressed = true

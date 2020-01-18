@@ -14,6 +14,7 @@ struct AddPeopleRow: View {
     var gender = ""
     var adultOrChild = ""
     var peopleRelationship = ""
+    var tripID = ""
     
     var body: some View {
         VStack {
@@ -37,11 +38,14 @@ struct AddPeopleRow: View {
             Text(peopleRelationship)
                 .font(.custom("Arial", size: 15))
                 .lineLimit(1)
+            Text(tripID)
+                           .font(.custom("Arial", size: 15))
+                           .lineLimit(1)
             }
-            .frame(width: 250, alignment: .leading)
+            .frame(width: 300, alignment: .leading)
             
         }
-        .frame(width: 250, alignment: .leading)
+        .frame(width: 300, alignment: .leading)
     }
 }
 

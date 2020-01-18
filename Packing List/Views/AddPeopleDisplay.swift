@@ -24,17 +24,26 @@ struct AddPeopleDisplay: View {
     @State private var gender = ""
     @State private var adultOrChild = ""
     @State private var peopleRelationship = ""
+    @State private var tripID = ""
     
     
     var body: some View {
         NavigationView{
-            //Text("Total People: \(addPeople.count)")
-            
+
             List{
                 Section{
                     ForEach(addPeople, id: \.self) { people in
-                        AddPeopleRow(firstName: people.firstName ?? "Empty!", gender: people.gender ?? "Empty!", adultOrChild: people.adultOrChild ?? "Empty!",
-                        peopleRelationship: people.peopleRelationship ?? "Empty!")
+                        AddPeopleRow(
+                            firstName: people.firstName ?? "Empty!",
+                            
+                            gender: people.gender ?? "Empty!",
+                            
+                            adultOrChild: people.adultOrChild ?? "Empty!",
+                            
+                            peopleRelationship: people.peopleRelationship ?? "Empty!",
+                            
+                            tripID: people.tripIDString ?? "Empty")
+                            
                     }.onDelete(perform: removePeople)
                     
                 }

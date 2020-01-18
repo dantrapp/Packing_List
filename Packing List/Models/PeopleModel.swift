@@ -15,4 +15,5 @@ struct Person: Identifiable {
     var gender : String
     var adultOrChild: String
     var peopleRelationship : String
+    var tripID : String
 }
