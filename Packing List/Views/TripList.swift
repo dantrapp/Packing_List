@@ -14,9 +14,9 @@ struct TripList: View {
 
     
     //fetch and order by itemName ascending
-    @FetchRequest(entity: PackingList.entity(), sortDescriptors: [NSSortDescriptor(key: "departureDate", ascending: true)])
+    @FetchRequest(entity: Trips.entity(), sortDescriptors: [NSSortDescriptor(key: "departureDate", ascending: true)])
     
-    var fetchTrip: FetchedResults<PackingList>
+    var fetchTrip: FetchedResults<Trips>
     
       //TRAVEL DATES
       @State var departureDate = Date()

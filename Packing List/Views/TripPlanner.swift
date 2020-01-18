@@ -110,7 +110,7 @@ struct TripPlanner: View {
                 Button(action:
                     {
                         self.isPressed.toggle()
-                        let addTrip = PackingList(context: self.moc)
+                        let addTrip = Trips(context: self.moc)
                         
                         addTrip.tripID = UUID()
                         
