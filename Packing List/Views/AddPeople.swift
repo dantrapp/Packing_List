@@ -1,6 +1,5 @@
 //
 //  AddPeople.swift
-//  Packing List
 //
 //  Created by Will Hustle on 12/24/19.
 //  Copyright © 2019 Will Hustle. All rights reserved.
@@ -39,7 +38,7 @@ struct AddPeople: View {
     //GET PEOPLE
     @FetchRequest(entity: People.entity(), sortDescriptors: [])
     
-    var fetchPeople: FetchedResults<People>
+    var fetchPeople : FetchedResults<People>
     
     @State var firstName : String = ""
     @State var adultOrChild : String = ""
@@ -104,6 +103,7 @@ struct AddPeople: View {
                 HStack{
                     Spacer()
                     Button("SAVE / Add Another Person") {
+                        //check for tripID
                         let addPeople = People(context: self.moc)
                         addPeople.firstName = self.firstName
                         addPeople.gender = self.chooseGender

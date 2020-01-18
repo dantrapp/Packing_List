@@ -13,9 +13,9 @@ struct AddPeopleDisplay: View {
     @Environment(\.managedObjectContext) var moc
     
     
-    @FetchRequest(entity: PackingList.entity(), sortDescriptors: []
+    @FetchRequest(entity: People.entity(), sortDescriptors: []
 
-    )var addPeople: FetchedResults<PackingList>
+    )var addPeople: FetchedResults<People>
     
     @State private var showingAddPeopleScreen = false
     
