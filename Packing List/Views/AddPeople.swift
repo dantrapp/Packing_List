@@ -49,6 +49,15 @@ struct AddPeople: View {
     //SAVE BUTTON PRESSED
     @State var saveButtonPressed = false
     
+    //GET TRIP NAME FROM TRIPPLANNER
+    var getTripID : String
+    var getTripName : String
+    
+   /*
+     I need to figure out how to pull the corresponding trip ID. Passing it through the modal just prints a random ID
+     */
+ 
+    
     
     //Add People Arrays
     
@@ -60,6 +69,11 @@ struct AddPeople: View {
         
         NavigationView{
             Form{
+                Section{
+                    Text("Trip Name: \(getTripName)")
+                    Text("Trip ID: \(getTripID)")
+                }
+                
                 Section(header: Text("First Name")){
                     TextField("Enter First Name", text: $firstName)
                     
@@ -160,7 +174,7 @@ struct AddPeople: View {
 //}
 struct AddPeople_Previews: PreviewProvider {
     static var previews: some View {
-        AddPeople()
+        AddPeople(getTripID: "Number", getTripName: "London")
     }
 }
 

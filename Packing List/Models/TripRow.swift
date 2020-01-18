@@ -15,6 +15,7 @@ struct TripRow: View {
     var typeOfTravel : String = ""
     var departing : Date = Date()
     var returning : Date = Date()
+    var tripID : UUID = UUID()
 //    var numberOfPeople : Int32
 //    var peopleID : UUID
     
@@ -43,6 +44,8 @@ struct TripRow: View {
             Text("Transportation: \(transportation)").font(.system(. caption)).minimumScaleFactor(0.8).lineLimit(1).padding(5)
             //travel type
             Text("Travel Type: \(typeOfTravel)").font(.system(. caption)).minimumScaleFactor(0.8).lineLimit(1).padding(5)
+            //trip ID
+                     Text("Trip ID: \(tripID)").font(.system(. caption)).minimumScaleFactor(0.8).lineLimit(1).padding(5)
             
             //                //number of people going
             //                Text("(\(Int32(peopleGoing)))").font(.system(size: 20)).minimumScaleFactor(0.8).lineLimit(1)

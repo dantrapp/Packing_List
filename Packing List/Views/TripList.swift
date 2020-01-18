@@ -11,52 +11,71 @@ import SwiftUI
 struct TripList: View {
     
     @Environment(\.managedObjectContext) var moc
-
+    
     
     //fetch and order by itemName ascending
     @FetchRequest(entity: Trips.entity(), sortDescriptors: [NSSortDescriptor(key: "departureDate", ascending: true)])
     
     var fetchTrip: FetchedResults<Trips>
     
-      //TRAVEL DATES
-      @State var departureDate = Date()
-      @State var returnDate = Date()
-      
-      //DESTINATION
-      @State var destination = ""
-      
-      
-      //PEOPLE GOING
-      @State var numberOfPeople = 0
+    //TRAVEL DATES
+    @State var departureDate = Date()
+    @State var returnDate = Date()
+    
+    //DESTINATION
+    @State var destination = ""
+    
+//    //TRIPID
+//    @State var tripID = UUID()
+    
+    
+    //PEOPLE GOING
+    @State var numberOfPeople = 0
     
     //TRANSPORTATION TYPE
     @State var transportationType = ""
-
+    
     var body: some View {
         NavigationView {
             List {
                 ForEach(fetchTrip, id: \.self) { currentTrip in
-                    TripRow(destination: currentTrip.destination ?? "Empty!", transportation: currentTrip.transportationType ?? "Empty!",typeOfTravel: currentTrip.travelType ?? "Empty!", departing: currentTrip.departureDate ?? Date(), returning: currentTrip.returnDate ?? Date())
-                 
-                    }.onDelete(perform: removeTrips)
+                    TripRow(
+                        
+                        destination: currentTrip.destination ?? "Empty!",
+                        
+                        transportation: currentTrip.transportationType ?? "Empty!",
+                        
+                        typeOfTravel: currentTrip.travelType ?? "Empty!",
+                        
+                        departing: currentTrip.departureDate ?? Date(),
+                        
+                        returning: currentTrip.returnDate ?? Date(),
+                        
+                        tripID:
+                                            currentTrip.tripID ?? UUID()
+                                             
+                        
+                    )
                     
+                }.onDelete(perform: removeTrips)
+                
             }
-        .navigationBarTitle("Upcoming Trips")
+            .navigationBarTitle("Upcoming Trips")
         }
     }
     
     //remove trips from core data
-        func removeTrips(at offsets: IndexSet) {
-            for index in offsets {
-                let trips = fetchTrip[index]
-                self.moc.delete(trips)
-            }
-            do {
-                try self.moc.save()
-            } catch {
-    //            print(error.localizedDescription)
-            }
+    func removeTrips(at offsets: IndexSet) {
+        for index in offsets {
+            let trips = fetchTrip[index]
+            self.moc.delete(trips)
         }
+        do {
+            try self.moc.save()
+        } catch {
+            //            print(error.localizedDescription)
+        }
+    }
     
 }
 

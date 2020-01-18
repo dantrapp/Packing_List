@@ -53,7 +53,7 @@ struct AddPeopleDisplay: View {
                 }
             )
                 .sheet(isPresented: $showingAddPeopleScreen) {
-                AddPeople().environment(\.managedObjectContext, self.moc)
+                    AddPeople(getTripID: "Number", getTripName: "London").environment(\.managedObjectContext, self.moc)
             }
             
  

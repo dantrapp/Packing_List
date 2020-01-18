@@ -16,13 +16,16 @@ struct TripPlanner: View {
     
     //CAPTURE FOR CORE DATA
     
-    
     //TRAVEL DATES
     @State var departureDate = Date()
     @State var returnDate = Date()
     
     //DESTINATION
     @State var destination = ""
+    
+    //TRIP ID
+    @State var tripID = UUID()
+    
     
     
     //PEOPLE GOING
@@ -125,15 +128,18 @@ struct TripPlanner: View {
                         
                         addTrip.numberOfPeople = Int32(self.numberOfPeople)
                         
+                        addTrip.tripID = self.tripID
+                        
                         //save the data
                         try? self.moc.save()
                         
                         //reset the form fields
-                        self.destination = ""
+                        //self.destination = ""
                         self.departureDate = Date()
                         self.returnDate = Date()
                         self.transportation = ""
                         self.typeOfTravel = ""
+                        //self.tripID = UUID()
                         //                        self.numberOfPeople = Int(Int32(1))
 
                         
@@ -159,7 +165,20 @@ struct TripPlanner: View {
                 //SAVE BUTTON PRESSED?
                 if isPressed{
                     if numberOfPeople > 1{
-                        AddPeopleButton()
+                           VStack{
+                                 HStack{
+                                     Spacer()
+                                     NavigationLink(destination: AddPeople(getTripID: "\(tripID)", getTripName: "\(destination)")){
+                                         
+                                         Text("Add People")
+                                         Image(systemName: "arrowshape.turn.up.right.circle.fill")
+                                         Spacer()
+                                     }
+                                     .frame(width: 250,height:50).background(Color.blue) .foregroundColor(Color.white)
+                                     
+                                 }
+                             }
+                             .background(Color.blue).frame(height: 50)
                         Text("People Going: \(numberOfPeople)")
                                    
                         
@@ -191,25 +210,6 @@ struct TripPlanner: View {
 struct TripPlanner_Previews: PreviewProvider {
     static var previews: some View {
         TripPlanner()
-    }
-}
-
-struct AddPeopleButton: View {
-    var body: some View {
-        VStack{
-            HStack{
-                Spacer()
-                NavigationLink(destination: AddPeople()){
-                    
-                    Text("Add People")
-                    Image(systemName: "arrowshape.turn.up.right.circle.fill")
-                    Spacer()
-                }
-                .frame(width: 250,height:50).background(Color.blue) .foregroundColor(Color.white)
-                
-            }
-        }
-        .background(Color.blue).frame(height: 50)
     }
 }
 

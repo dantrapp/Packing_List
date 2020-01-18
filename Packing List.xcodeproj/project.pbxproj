@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		712B3D0C23D3AF2F0048C4CE /* PeopleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712B3D0B23D3AF2F0048C4CE /* PeopleModel.swift */; };
 		7140EEDD23B2B5E50009DA79 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7140EEDC23B2B5E50009DA79 /* AppDelegate.swift */; };
 		7140EEDF23B2B5E50009DA79 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7140EEDE23B2B5E50009DA79 /* SceneDelegate.swift */; };
 		7140EEE223B2B5E50009DA79 /* Packing_List.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7140EEE023B2B5E50009DA79 /* Packing_List.xcdatamodeld */; };
@@ -37,6 +38,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		712B3D0B23D3AF2F0048C4CE /* PeopleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleModel.swift; sourceTree = "<group>"; };
 		7140EED923B2B5E50009DA79 /* Packing List.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Packing List.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7140EEDC23B2B5E50009DA79 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7140EEDE23B2B5E50009DA79 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 				716EE69123C0413C0033C5DC /* TripRow.swift */,
 				716EF0F723BA94E8008384F3 /* ItemListTesting.swift */,
 				716EE69523C172670033C5DC /* TripModel.swift */,
+				712B3D0B23D3AF2F0048C4CE /* PeopleModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -249,6 +252,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				712B3D0C23D3AF2F0048C4CE /* PeopleModel.swift in Sources */,
 				7140EF0123B2B7B40009DA79 /* DefaultItems.swift in Sources */,
 				717CF61723B7DE1D00BF5F8C /* AddPeopleDisplay.swift in Sources */,
 				716EE69623C172670033C5DC /* TripModel.swift in Sources */,
