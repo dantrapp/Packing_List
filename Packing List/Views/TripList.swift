@@ -25,9 +25,6 @@ struct TripList: View {
     //DESTINATION
     @State var destination = ""
     
-//    //TRIPID
-//    @State var tripID = UUID()
-    
     
     //PEOPLE GOING
     @State var numberOfPeople = 0
@@ -38,7 +35,9 @@ struct TripList: View {
     var body: some View {
         NavigationView {
             List {
+
                 ForEach(fetchTrip, id: \.self) { currentTrip in
+                    
                     TripRow(
                         
                         destination: currentTrip.destination ?? "Empty!",
@@ -58,7 +57,7 @@ struct TripList: View {
                     )
                     
                 }.onDelete(perform: removeTrips)
-                
+               //end foreach
             }
             .navigationBarTitle("Upcoming Trips")
         }

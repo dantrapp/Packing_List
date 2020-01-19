@@ -29,6 +29,8 @@ struct TripRow: View {
     
     var body: some View {
         //command -> embed in hstack
+        
+        NavigationLink(destination: TripDetail(tripID: "\(tripID)")){
         HStack{
         VStack(alignment: .leading){
             Spacer()
@@ -55,7 +57,7 @@ struct TripRow: View {
             //ADD IMAGE TO ROW
             Image("goldenGate").resizable().aspectRatio(contentMode: .fill).blur(radius: 0.4).opacity(0.7).frame(width: 150, height: 60).padding(10)
         }
-        
+        } // end nav link
     }
 }
 

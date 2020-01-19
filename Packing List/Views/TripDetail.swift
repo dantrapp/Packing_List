@@ -8,15 +8,13 @@
 
 import SwiftUI
 
-//use TripID to identify trip by number
-
-
 struct TripDetail: View {
     
+    //get the trip id
+    var tripID : String
     
-    
-    @State var categories = ["Clothing", "Important Documents", "Toiletries", "Health", "Essentials", "Electronics", "Accessories"]
-    
+    //use TripID to identify trip and pull applicable attributes from CoreData
+      
     var body: some View {
         
 
@@ -70,6 +68,6 @@ struct TripDetail: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        TripDetail()
+        TripDetail(tripID: "Number")
     }
 }
