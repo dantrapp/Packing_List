@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		712B3D0C23D3AF2F0048C4CE /* PeopleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712B3D0B23D3AF2F0048C4CE /* PeopleModel.swift */; };
+		712B3D0E23D514290048C4CE /* PeopleGoing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712B3D0D23D514290048C4CE /* PeopleGoing.swift */; };
 		7140EEDD23B2B5E50009DA79 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7140EEDC23B2B5E50009DA79 /* AppDelegate.swift */; };
 		7140EEDF23B2B5E50009DA79 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7140EEDE23B2B5E50009DA79 /* SceneDelegate.swift */; };
 		7140EEE223B2B5E50009DA79 /* Packing_List.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7140EEE023B2B5E50009DA79 /* Packing_List.xcdatamodeld */; };
@@ -39,6 +40,7 @@
 
 /* Begin PBXFileReference section */
 		712B3D0B23D3AF2F0048C4CE /* PeopleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleModel.swift; sourceTree = "<group>"; };
+		712B3D0D23D514290048C4CE /* PeopleGoing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleGoing.swift; sourceTree = "<group>"; };
 		7140EED923B2B5E50009DA79 /* Packing List.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Packing List.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7140EEDC23B2B5E50009DA79 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7140EEDE23B2B5E50009DA79 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 				717CF61623B7DE1D00BF5F8C /* AddPeopleDisplay.swift */,
 				7140EF2723B435B30009DA79 /* ItemList.swift */,
 				71E6E61B23BC391700709765 /* ItemDetail.swift */,
+				712B3D0D23D514290048C4CE /* PeopleGoing.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -263,6 +266,7 @@
 				71F0364023C3E0AE003718C2 /* MapView.swift in Sources */,
 				7140EEE423B2B5E60009DA79 /* TripDetail.swift in Sources */,
 				716EE69223C0413C0033C5DC /* TripRow.swift in Sources */,
+				712B3D0E23D514290048C4CE /* PeopleGoing.swift in Sources */,
 				716EF0F823BA94E8008384F3 /* ItemListTesting.swift in Sources */,
 				71F0364B23C50605003718C2 /* WeatherView.swift in Sources */,
 				7140EEF423B2B6140009DA79 /* TripPlanner.swift in Sources */,

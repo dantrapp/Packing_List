@@ -9,54 +9,82 @@
 import SwiftUI
 
 struct TripDetail: View {
-    
-    //get the trip id
+    //
+    //    //Trip ID Fetch Request
+    //    //sample tripID: 811EDA3A-F4B5-4C8B-A30D-0E41385D9E98
+    //
     var tripID : String
+    var destination : String
+    //
+    //    var tripRequest : FetchRequest<Trips>
+    //    var trip : FetchedResults<Trips>{tripRequest.wrappedValue}
+    //
+    //    init(tripID: String){
+    //        self.tripID = tripID
+    //        self.tripRequest = FetchRequest(entity: Trips.entity(), sortDescriptors: [], predicate:
+    //            NSPredicate(format: "%K == %@", #keyPath(Trips.tripID),tripID))
+    //
+    //}
     
-    //use TripID to identify trip and pull applicable attributes from CoreData
-      
     var body: some View {
         
-
-        VStack {
+        NavigationView {
             
-            ZStack {
-                //add text overlay for Destination + Travel Dates
-                
-                //Text(city, departureDate)
-                
-                //grab image based on tripID
-                Image( "fijiHut").resizable().aspectRatio(contentMode: .fill).blur(radius: 0.4).opacity(0.7).frame(height: 200)
-                
-                
-            }.edgesIgnoringSafeArea(.all)
-            
-            
-            
-            //If people going..
             VStack {
-                Text("People Going")
                 
-                HStack {
-                    Spacer()
-                    Image(systemName: "person")
-                    Text("Jessica | Edit")
-                    Spacer()
+                ZStack {
+                    //add text overlay for Destination + Travel Dates
+                    
+                    //Text(city, departureDate)
+                    
+                    //grab image based on tripID
+                    Image( "fijiHut").resizable().aspectRatio(contentMode: .fill).blur(radius: 0.4).opacity(0.7).frame(height: 200)
+                    
+                    
+                    
+                    
+                    
+                }.edgesIgnoringSafeArea(.all)
+                
+                VStack{
+                    Text("\(tripID)")
+                    
+                }
+                VStack{
+                    PeopleGoing(tripID: "\(tripID)", destination: "\(destination)")
+                    
                 }
                 
-             
                 
-     
+//                List {
+//
+//                    VStack {
+//
+//                        //             Text("TripID: \(tripID)")
+//                        //pull destination from Core Data
+//
+//                        //                        ForEach(tripRequest, id: \.self) { data in
+//                        //                            Text("\(data.destination ?? "Empty!")")
+//                        //                        }
+//
+//
+//                        //THIS SHOULD WORK!
+////                        PeopleGoing(tripID: "\(tripID)")
+//
+//                    }
+//
+//                }
+                
+                
+                Spacer()
+                
+                
             }
             
-            
-            Spacer()
             
             
         }
         
-        
-        
     }
     
 }
@@ -64,10 +92,11 @@ struct TripDetail: View {
 
 
 
-
-
-struct ContentView_Previews: PreviewProvider {
+#if DEBUG
+struct TripDetail_Previews: PreviewProvider {
     static var previews: some View {
-        TripDetail(tripID: "Number")
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        return TripDetail(tripID: "811EDA3A-F4B5-4C8B-A30D-0E41385D9E98", destination: "London").environment(\.managedObjectContext, context)
     }
 }
+#endif

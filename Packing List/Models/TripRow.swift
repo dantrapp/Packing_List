@@ -30,7 +30,7 @@ struct TripRow: View {
     var body: some View {
         //command -> embed in hstack
         
-        NavigationLink(destination: TripDetail(tripID: "\(tripID)")){
+        NavigationLink(destination: TripDetail(tripID: "\(tripID)", destination: "\(destination)")){
         HStack{
         VStack(alignment: .leading){
             Spacer()
