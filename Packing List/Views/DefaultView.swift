@@ -24,16 +24,16 @@ struct DefaultView: View {
                     Image(systemName:(selected == 2 ? "calendar.circle.fill" : "calendar.circle"))
                     Text("Upcoming Trips")
             }
-            AddPeopleDisplay()
-                .tabItem {
-                    Image(systemName:(selected == 3 ? "person.badge.plus.fill" : "person.badge.plus"))
-                    Text("Display People")
-            }
-            PeopleGoing(tripID: "811EDA3A-F4B5-4C8B-A30D-0E41385D9E98", destination: "London")
-                          .tabItem {
-                              Image(systemName:(selected == 4 ? "person.badge.plus.fill" : "person.badge.plus"))
-                              Text("People Going")
-                      }
+//            AddPeopleDisplay()
+//                .tabItem {
+//                    Image(systemName:(selected == 3 ? "person.badge.plus.fill" : "person.badge.plus"))
+//                    Text("Display People")
+//            }
+//            PeopleGoing(tripID: "811EDA3A-F4B5-4C8B-A30D-0E41385D9E98", destination: "London")
+//                          .tabItem {
+//                              Image(systemName:(selected == 4 ? "person.badge.plus.fill" : "person.badge.plus"))
+//                              Text("People Going")
+//                      }
                       
             
         }

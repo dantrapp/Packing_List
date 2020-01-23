@@ -38,9 +38,7 @@ struct PeopleGoing: View {
     
     
     var body: some View {
-        NavigationView {
             List {
-                Section {
                     ForEach(person, id: \.self) {
                         people in
                         Text("\(people.firstName ?? "Empty")")
@@ -67,11 +65,12 @@ struct PeopleGoing: View {
                     
                     
                 }
-                .navigationBarTitle("\(destination)")
+        .listStyle(GroupedListStyle())
+                 
             }
+            
         }
-    }
-}
+
 
 #if DEBUG
 struct PeopleGoing_Previews: PreviewProvider {
